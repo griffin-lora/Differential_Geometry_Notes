@@ -231,13 +231,15 @@ This theorem motivates the following notation
 \end{example}
 
 \begin{definition}[Differential]
-    Consider a $C^1$ function $f\colon \real^n \to \real$, then the \textit{differential} of $f$ is the $1$-form
+    Consider a $C^1$ function $f\colon \real^n \to \real$, then the \textit{differential} of $f$ can be expressed through the $1$-form
     \[
-        df(P) = \sum_{i = 1}^n (D_{x_i}f(P)) dx_i
+        (df)(P) = \sum_{i = 1}^n (D_{x_i}f(P)) dx_i
     \]
     Now consider that $(df(P))_P(\vec{v}) = \nabla f(P)\cdot \vec{v}$. \\
     Notice that this is precisely the directional derivative of $f$ at $P$ in the direction of $\vec{v}$ if $|\vec{v}| = 1$.
 \end{definition}
+
+Note that the notation $df$ describes the differential of $f$, while $(df)(P)$ describes the form associated with the differential of $f$.
 
 \begin{example}
     Let $\rho$ be a $1$-form as
