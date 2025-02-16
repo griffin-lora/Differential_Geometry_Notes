@@ -1,0 +1,254 @@
+\documentclass[notes.tex]{subfiles}
+
+\begin{document}
+
+\setcounter{section}{1}
+\section{Differential 1-forms}
+
+\subsection{Intuition}
+\begin{definition}[Differential $1$-form]
+    A \textit{$1$-form} on $\real^n$ is a map that assigns a number to each oriented line segment in a suitable way.
+\end{definition}
+
+\begin{example} \label{real_one_form}
+    Let $P, Q \in \real$ and denote $\vec{PQ}$ as the oriented line segment (vector) and consider some $f\colon \real \to \real$. Then $f(x)dx$ is a differential $1$-form with the following map
+    \[
+        \left(f(x)dx\right)(\vec{PQ}) = f(P)(Q - P)
+    \]
+\end{example}
+Notice that $Q - P$ is an oriented magnitude, or in other words $\Delta x$. Therefore we can intuit that as $Q \to P$ then $\Delta x \to dx$.
+
+\begin{example} \label{field_nonconservative_one_form}
+    Consider the vector field $\vec{F}\colon \real^n \to \real^n$, then an example of a $1$-form $\omega_{\vec{F}}$ is
+    \[
+        \omega_{\vec{F}}(\vec{PQ}) = \vec{F}(P)\cdot\vec{PQ}
+    \]
+    Consider the case where $\vec{PQ}$ is aligned with the field, then we can reason by \cref{real_one_form} that
+    \begin{align*}
+        \omega_{\vec{F}}(\vec{PQ})
+        &= |\vec{F}(P)||\vec{PQ}|
+        = |\vec{F}(P)||\vec{PQ}|\cos\theta \\
+        &= \vec{F}(P)\cdot\vec{PQ}
+    \end{align*}
+    Similar logic follows for when $\vec{PQ}$ is orthogonal to the field and opposite the direction of the field. \\
+    Notice that this is precisely the work by $\vec{F}$ on the path $\vec{PQ}$.
+\end{example}
+
+\begin{example} \label{field_conservative_one_form}
+    Let $f\colon \mathbb{R}^n \to \mathbb{R}$ be differentiable. Then consider the $1$-form as
+    \[
+        df(\vec{PQ}) = \nabla f(P)\cdot\vec{PQ}
+    \]
+    Notice that this is exactly the directional derivative of $f$ at $P$ on $\vec{PQ}$. Also notice that by taking the exterior derivative here, we differentiated the underlying function. However, differentiating a function is not strictly necessary as seen in (for cases where we aren't guaranteed a potential) \cref{real_one_form} and \cref{field_nonconservative_one_form}.
+\end{example}
+
+We can also consider $1$-forms evaluated over smooth curves. The whole point of (path/line) integration is to evaluate $1$-forms over smooth curves. \\
+For the following derivation, let $\omega$ be a $1$-form on $\real^n$ and $\gamma$ be an oriented smooth curve in $\real^n$, then we can break up $\gamma$ into oriented line segments $[L_i]_{i = 1}^k$ and consider
+\[
+    \sum_{i = 1}^k\omega(L_i)
+\]
+If this sum converges as $k \to \infty$ then we have the path integral.
+
+\begin{example}
+    Consider the conditions from \cref{real_one_form}. Now consider that $a < b$ and break up $\vec{ab}$ into $[x_i]_{i = 0}^k$ so $L_i = [x_{i - 1}, x_i]$, therefore we sum as
+    \begin{align*}
+        \sum_{i = 1}^k (f(x)dx)(L_i)
+        &= \sum_{i = 1}^k f(x_{i - 1})(x_i - x_{i - 1})
+    \end{align*}
+    But notice that as $k \to \infty$ then we get the integral $\int_a^b f(x)dx$.
+\end{example}
+
+\begin{example}
+    If we consider \cref{field_nonconservative_one_form} and some smooth curve $\gamma$ from $a$ to $b$ then we get
+    \[
+        \int_\gamma \omega_{\vec{F}} = \int_\gamma \vec{F}(\vec{r})\cdot d\vec{r}
+    \]
+\end{example}
+
+\begin{example}
+    If we consider \cref{field_conservative_one_form} and some smooth curve $\gamma$ from $P$ to $Q$ then we get
+    \[
+        \int_\gamma df = f(Q) - f(P)
+    \]
+    which is the same as the Fundamental Theorem of Line Integrals
+    \[
+        \int_\gamma df = \int_\gamma \nabla f(\vec{r})\cdot d\vec{r} = f(Q) - f(P)
+    \]
+\end{example}
+So even very early on we see the Stokes-Cartan theorem appear.
+
+\subsection{Formal Definitions}
+\begin{definition}[Tangent Space]
+    Let $P \in \real^n$, then the \textit{tangent space} to $\real^n$ at $P$ is defined as
+    \[
+        T_P \real^n = \{ (P, \vec{v}) : \vec{v} \in \real^n \}
+    \]
+    We can think of $T_P\real^n$ as the set of vectors at $P$. Importantly, $T_P$ is a vector space. More importantly any oriented line segment $\vec{PQ}$ can be thought of as the tangent space vector $(P, \vec{PQ}) \in T_P\real^n$.
+\end{definition}
+
+Now instead of $\omega(\vec{PQ})$ we can write $\omega(\vec{PQ})$ or $\omega_{P}(\vec{v})$.
+
+\begin{example}
+    Let $\vec{v} = a\hat{i} + b\hat{j}$ and consider the $1$-form $\omega$ on $\mathbb{R}^2$ defined by
+    \[
+        \omega_{(x, y)}(\vec{v}) = bx
+    \]
+\end{example}
+
+We want our formal definition of $1$-forms to work well with integration. Notice that if $\omega_p(\vec{v}) = 1$ then the Riemann sum
+\[
+    \sum_{i = 1}^k \omega_P(\vec{v_i}) = k
+\]
+diverges as $k \to \infty$, so this is not a valid $1$-form. We must force $\omega_P$ to have some behavior that plays nicely with integration. These conditions are linearity through linear functionals, and smoothness through functions of class $C^1$.
+
+\begin{definition}[Linear Functional]
+    If $V$ is a vector space over a field $K$ then $\varphi$ is a \textit{linear functional} on $V$ iff $\varphi \in \mathcal{L}(V, K)$.
+\end{definition}
+
+\begin{definition}[Differential $1$-Form]
+    $\omega$ is a \textit{differential $1$-form} on $S \subseteq \real^n$ iff $\omega_P \in \mathcal{L}(T_P \real^n, \real)$ is a linear functional such that
+    \[
+        \omega_P = \sum_{i = 1}^m f_i(P)\varphi_i
+    \]
+    where
+    \begin{enumerate}[label = \arabic*)]
+        \item $[f_i]_{i = 1}^m\colon S \to \real$ are \textit{coefficient functions} of smoothness class $C^1$ and
+        \item $[\varphi_i]_{i = 1}^m \in \mathcal{L}(T_P \real^n, \real)$ such that $\varphi_i(\vec{v})$ is invariant under choice of $P$.
+    \end{enumerate}
+    Note that this specific notation is used for $1$-forms
+    \[
+        \omega_P(\vec{v}) = \sum_{i = 1}^m f_i(P)\varphi_i(\vec{v})
+    \]
+\end{definition}
+
+\begin{theorem}[$1$-Forms are the Sum of $1$-Forms] \label{forms_are_sum_of_forms}
+    $\omega$ is a differential $1$-form on $S \subseteq \real^n$ iff there exist $[\alpha_i]_{i = 1}^m$ that are $1$-forms on $S$ and $[f_i]_{i = 1}^m\colon S \to \real$ that are smooth of class $C^1$ such that $\omega$ can be written in the form
+    \[
+        \omega_P = \sum_{i = 1}^m f_i(P)(\alpha_i)_P
+    \]
+\end{theorem}
+\begin{proof}
+    For the first direction, let there exist $1$-forms $[\alpha_i]_{i = 1}^m$ such that
+    \[
+        \omega_P = \sum_{i = 1}^m f_i(P)(\alpha_i)_P
+    \]
+    Notice that $\omega_P$ is in the span of $[(\alpha_i)_P]_{i = 1}^m$, therefore it is a linear functional. Therefore, since $\omega_P$ is a linear functional in the correct form then $\omega$ is a $1$-form. \\
+    For the second direction, let $\omega$ be a $1$-form, then there exist
+    \begin{enumerate}[label = \arabic*)]
+        \item $[f_i]_{i = 1}^m\colon S \to \real$ that are smooth of class $C^1$ and
+        \item $[\varphi_i]_{i = 1}^m \in \mathcal{L}(T_P \real^n, \real)$.
+    \end{enumerate}
+    such that
+    \[
+        \omega_P = \sum_{i = 1}^m f_i(P)\varphi_i
+    \]
+    Now consider $[\alpha_i]_{i = 1}^m$ such that $[(\alpha_i)_P = \varphi_i]_{i = 1}^m$. Since each $\alpha_i$ is a sum of linear functionals with identity coefficient functions then all $[\alpha_i]_{i = 1}^m$ are $1$-forms. Now consider that
+    \begin{align*}
+        \omega_P = \sum_{i = 1}^m f_i(P)\varphi_i = \sum_{i = 1}^m f_i(P)(\alpha_i)_P
+    \end{align*}
+    Therefore $\omega_P$ is written in the correct form.
+\end{proof}
+
+This theorem motivates the following notation
+\[
+    \omega = \sum_{i = 1}^m f_i(P)\alpha_i \iff \omega_P = \sum_{i = 1}^m f_i(P)(\alpha_i)_P
+\]
+
+\begin{definition}[Basis $1$-Forms]
+    If $\beta = \{ \vec{v_i} \}_{i = 1}^n$ is a basis for $\real^n$ then $[dx_i]_{i = 1}^n$ are \textit{basis $1$-forms} for $\beta$ on $\real^n$ iff
+    \[
+        (dx_i)_P(\vec{v}) = (dx_i)_P\left( \sum_{i = 1}^n c_i\vec{v_i} \right) = c_i
+    \]
+\end{definition}
+
+\begin{theorem}[$1$-Forms are the Sum of Basis $1$-Forms]
+    Given a basis $\beta = \{ \vec{v_i} \}_{i = 1}^n$ for $\real^n$ with basis $1$-forms $[dx_i]_{i = 1}^n$, then $\omega$ is a $1$-form on $S \subseteq \real^n$ iff $\omega$ can be written in the form
+    \[
+        \omega = \sum_{i = 1}^n f_i(P)dx_i
+    \]
+\end{theorem}
+\begin{proof}
+    For the first direction, let $\omega = \sum_{i = 1}^n f_i(P)dx_i$, then $\omega$ is a $1$-form by \cref{forms_are_sum_of_forms}. \\
+    For the second direction, let $\omega$ be a $1$-form on $S \subseteq \real^n$ as
+    \[
+        \omega_P = \sum_{j = 1}^m g_j(P)\varphi_j
+    \]
+    Now consider that for all $[\varphi_j]_{j = 1}^m$, $\mathcal{M}(\varphi_j) = (A_i)_{i = 1}^n$ which means that
+    \[
+        \varphi_j(\vec{v}) = \varphi_j\left( \sum_{i = 1}^n c_i\vec{v_i} \right) = \sum_{i = 1}^n A_ic_i
+    \]
+    Notice that
+    \begin{align*}
+        \varphi_j(\vec{v})
+        &= \sum_{i = 1}^n A_ic_i
+        = \sum_{i = 1}^n A_i(dx_i)_P(\vec{v})
+    \end{align*}
+    Now consider that
+    \begin{align*}
+        \omega_P(\vec{v})
+        &= \sum_{j = 1}^m g_j(P)\varphi_j(\vec{v})
+        = \sum_{j = 1}^m g_j(P)\sum_{i = 1}^n A_i(dx_i)_P(\vec{v}) \\
+        &= \sum_{j = 1}^m \sum_{i = 1}^n A_i g_j(P) (dx_i)_P(\vec{v}) \\
+        &= \sum_{i = 1}^n \sum_{j = 1}^m A_i g_j(P) (dx_i)_P(\vec{v}) \\
+        &= \sum_{i = 1}^n \left( \sum_{j = 1}^m A_i g_j(P) \right) (dx_i)_P(\vec{v}) \\
+    \end{align*}
+    Therefore, we let $[f_i]_{i = 1}^n\colon S \to \real$ such that
+    \[
+        f_i = \sum_{j = 1}^m A_i g_j
+    \]
+    Because $f_i$ is a linear combination of vectors in smoothness class $C^1$, it is still of smoothness class $C^1$. \\
+    Therefore
+    \begin{align*}
+        \omega_P(\vec{v}) = \sum_{i = 1}^n f_i(P) (dx_i)_P(\vec{v})
+        &\iff \omega_P = \sum_{i = 1}^n f_i(P) (dx_i)_P \\
+        &\iff \omega = \sum_{i = 1}^n f_i(P) dx_i
+    \end{align*}
+    which is now in the correct form.
+\end{proof}
+
+\begin{example}
+    Consider the standard basis for $\real^2$ where $\vec{v} = a\hat{i} + b\hat{j}$. Now let $dx$ and $dy$ such that $(dx)_P\vec{v} = a$ and $(dy)_P\vec{v} = b$. Therefore, $dx$ and $dy$ are basis $1$-forms for $\real^2$. We can now view as $dx$ as giving us the change in $x$ for any vector at $P$ and $dy$ as giving us the change in $y$ for any vector at $P$.
+\end{example}
+
+\begin{example}
+    Consider the force field $\vec{F}$ as
+    \[
+        \vec{F}(x, y, z) = F_1(x, y, z)\hat{i} + F_2(x, y, z)\hat{j} + F_3(x, y, z)\hat{k}
+    \]
+    where $F_1, F_2, F_3$ are $C^1$. \\
+    Now we can associate a $1$-form $\omega$ by
+    \[
+        \omega = \vec{F}(x, y, z)\cdot(dx\hat{i} + dy\hat{j} + dz\hat{k}) = F_1(x, y, z)dx + F_2(x, y, z)dy + F_3(x, y, z)dz
+    \]
+    Now consider
+    \begin{align*}
+        \omega_P(\vec{v})
+        &= F_1(P)a + F_2(P)b + F_3(P)c
+        = \vec{F}(P)\cdot\vec{v} \\
+        &= |\vec{F}(P)||\vec{v}|\cos\theta
+    \end{align*}
+    Therefore $\omega_P(\vec{v})$ gives us a scalar with magnitude indicating how much $\vec{v}$ is aligned with the field $\vec{F}$ and with sign indicating if $\vec{F}(P)$ is in the same direction as $\vec{v}$.
+\end{example}
+
+\begin{definition}[Differential]
+    Consider a $C^1$ function $f\colon \real^n \to \real$, then the \textit{differential} of $f$ is the $1$-form
+    \[
+        df(P) = \sum_{i = 1}^n (D_{x_i}f(P)) dx_i
+    \]
+    Now consider that $(df(P))_P(\vec{v}) = \nabla f(P)\cdot \vec{v}$. \\
+    Notice that this is precisely the directional derivative of $f$ at $P$ in the direction of $\vec{v}$ if $|\vec{v}| = 1$.
+\end{definition}
+
+\begin{example}
+    Let $\rho$ be a $1$-form as
+    \[
+        \rho = \frac{-y}{x^2 + y^2}dx + \frac{x}{x^2 + y^2}dy
+    \]
+    Notice that $\rho$ is not defined at $\vec{0}$ so it is a $1$-form on $\real^2 \setminus \{ \vec{0} \}$. However, this is not an issue since this does not effect the linearity of the functionals on tangent vectors, merely what points $P$ we can choose for our tangent space. Notice that $\rho$ is the associated form to
+    \[
+        \vec{F}(x, y) = \left( \frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2} \right)
+    \]
+    First notice that $\vec{G}(x, y) =\left( \frac{x}{x^2 + y^2}, \frac{y}{x^2 + y^2} \right)$ is a vector with length $(x^2 + y^2)^{-\frac{1}{2}}$ and $\vec{F}(x, y)$ represents the $\frac{\pi}{2}$ counterclockwise rotation of $\vec{G}(x, y)$. Therefore $\rho$ measures how much any $\vec{v}$ at some point $P$ induces a counterclockwise rotation about the origin.
+\end{example}
+
+\end{document}

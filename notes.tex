@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage[margin = 1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\parindent = 0pt
+\parskip = 0pt
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.18}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{cleveref}
+\usepackage{tabularx}
+\usepackage{subfiles}
+
+\everymath{\displaystyle}
+
+\frenchspacing
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\lspan}{span}
+\DeclareMathOperator{\img}{img}
+
+\numberwithin{equation}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\numberwithin{example}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\numberwithin{exercise}{subsection}
+
+\theoremstyle{definition}
+\newtheorem{procedure}{Procedure}
+\numberwithin{procedure}{subsection}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+\def\real{\mathbb{R}} 
+
+\begin{document}
+
+\subfile{one_forms}
+\subfile{curves}
+
+\end{document}
