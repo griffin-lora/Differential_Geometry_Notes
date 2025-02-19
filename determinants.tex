@@ -1,0 +1,55 @@
+\documentclass[notes.tex]{subfiles}
+
+\begin{document}
+
+\setcounter{section}{4}
+\section{Determinants}
+To discuss $n$-forms we must first learn about determinants
+
+\subsection{Definition and Basic Properties}
+\begin{definition}[Determinant]
+    A \textit{determinant} of \textit{dimension} $n$ is a function
+    \[
+        D\colon \bigtimes_{i = 1}^n \real^n \to \real
+    \]
+    such that it is
+    \begin{enumerate}[label = (\arabic*)]
+        \item invariant under the scaling of any of its column vectors
+        \[
+            D\left(\begin{cases} 
+                t\vec{v_i} & i = j \\
+                \vec{v_i} & \text{otherwise}
+            \end{cases}
+            \right)_{i = 1}^n = tD(\vec{v_i})_{i = 1}^n
+        \]
+        \item anticommutative with respect to swapping of column vectors
+        \[
+            D\left(\begin{cases}
+                \vec{v_j} & i = j \\
+                \vec{v_k} & i = k \\
+                \vec{v_i} & \text{otherwise}
+            \end{cases}\right)_{i = 1}^n
+            =
+            -D\left(\begin{cases}
+                \vec{v_k} & i = j \\
+                \vec{v_j} & i = k \\
+                \vec{v_i} & \text{otherwise}
+            \end{cases}\right)_{i = 1}^n
+        \]
+        \item invariant under adding linear combinations of column vectors together
+        \[
+            D\left(\begin{cases}
+                \vec{v_i} + t\vec{v_j} & i = k \\
+                \vec{v_i} & \text{otherwise}
+            \end{cases}\right)_{i = 1}^n = D(\vec{v_i})_{i = 1}^n
+        \]
+        \item identically one on basis column vectors
+        \[
+            D(\vec{e_i})_{i = 1}^n = 1
+        \]
+        where $\{\vec{e_i}\}_{i = 1}^n$ is a basis of $\real^n$
+    \end{enumerate}
+    
+\end{definition}
+
+\end{document}
