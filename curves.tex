@@ -70,9 +70,7 @@ We now need to show that the choice of paramaterization matters only up to orien
         &= \int_a^b \omega_{\phi(\psi(t))}(\phi'(\psi(t))\psi'(t))dt \\
         &= \int_a^b \omega_{\phi(\psi(t))}(\phi'(\psi(t)))\psi'(t)dt \\
     \end{align*}
-    Now we can substitute $u = \psi(t)$ so $du = \psi'(t)dt$. Now consider the new bounds $\alpha = \psi(a)$ to $\beta = \psi(b)$. Since $\psi'(t) > 0$ for $t \in [a, b]$ then $\psi$ has no local extrema by Fermat's theorem. Therefore, by the extreme value theorem, $\psi$ has extrema of $\psi(a)$ and $\psi(b)$. Also notice that since $\psi$ is monotonically increasing that $\psi(a) < \psi(b)$.
-    % TODO: Some black magic here
-    Therefore,
+    Now we can substitute $u = \psi(t)$ so $du = \psi'(t)dt$. Now consider the new bounds $\alpha = \psi(a)$ to $\beta = \psi(b)$. Since $\psi'(t) > 0$ for $t \in [a, b]$ then $\psi$ has no local extrema by Fermat's theorem. Therefore, by the extreme value theorem, $\psi$ has extrema of $\psi(a)$ and $\psi(b)$. Also notice that since $\psi$ is monotonically increasing, $\psi(a) < \psi(b)$, therefore $\psi(a)$ is the absolute maximum and $\psi(b)$ is the absolute minimum. Since $\psi$ is surjective, then $\psi(t)$ it attains all values on $[c, d]$, therefore it must have a minimum of $c$ and maximum of $d$. Therefore, $\psi(a) = c$ and $\psi(b) = d$ so
     \[
         \int_a^b \omega_{\phi(\psi(t))}(\phi'(\psi(t)))\psi'(t)dt
         = \int_c^d \omega_{\phi(u)}(\phi'(u))du
