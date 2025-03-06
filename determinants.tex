@@ -17,7 +17,7 @@
         \[
             D\left(\begin{cases} 
                 t\vec{v_i} & i = j \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v_i} & .
             \end{cases}
             \right)_{i = 1}^n = tD(\vec{v_i})_{i = 1}^n
         \]
@@ -26,20 +26,20 @@
             D\left(\begin{cases}
                 \vec{v_j} & i = j \\
                 \vec{v_k} & i = k \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v_i} & .
             \end{cases}\right)_{i = 1}^n
             =
             -D\left(\begin{cases}
                 \vec{v_k} & i = j \\
                 \vec{v_j} & i = k \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v_i} & .
             \end{cases}\right)_{i = 1}^n
         \]
         \item invariant under adding linear combinations of column vectors together
         \[
             D\left(\begin{cases}
                 \vec{v_i} + t\vec{v_j} & i = k \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v_i} & .
             \end{cases}\right)_{i = 1}^n = D(\vec{v_i})_{i = 1}^n
         \]
         \item identically one on basis column vectors
@@ -56,5 +56,60 @@
 \end{lemma}
 
 Therefore we denote the determinant $D$ for the current context as $D = \det$.
+
+\begin{theorem}
+    \[
+        \det\left( \begin{cases}
+            \vec{u} + \vec{w} & i = j \\
+            \vec{v_i} & .
+        \end{cases} \right)
+        =
+        \det\left( \begin{cases}
+            \vec{u} & i = j \\
+            \vec{v_i} & .
+        \end{cases} \right)
+        +
+        \det\left( \begin{cases}
+            \vec{w} & i = j \\
+            \vec{v_i} & .
+        \end{cases} \right)
+    \]
+\end{theorem}
+
+\subsection{Relationship to Volume}
+First, we look at parallelograms in $\real^2$.
+
+\begin{definition}[Parallelogram]
+    If $\vec{v}, \vec{w} \in \real^2$ then
+    \[
+        P(\vec{v}, \vec{w}) = \{ s\vec{v} + t\vec{w} : 0 \leq s \leq 1, 0 \leq t \leq 1 \}
+    \]
+    is the \textit{parallelogram} that is \textit{spanned} by $\vec{v}$ and $\vec{w}$.
+\end{definition}
+
+If we change the order of $\vec{v}$ and $\vec{w}$ then we get the corresponding parallelogram with opposite orientation.
+
+\begin{definition}[Oriented Area]
+    $A\colon \real^2 \times \real^2 \to \real^2$ is the \textit{oriented area} function for parallelograms iff $A(\vec{v}, \vec{w})$ gives the area of $P(\vec{v}, \vec{w})$ if $P(\vec{v}, \vec{w})$ has positive orientation and $A(\vec{v}, \vec{w})$ gives the negative area of $P(\vec{v}, \vec{w})$ if $P(\vec{v}, \vec{w})$ has negative orientation.
+\end{definition}
+
+\begin{lemma}
+    The oriented area function is equal to the determinant.
+\end{lemma}
+\begin{proof}
+    For axiom 1, scaling any side of a parallelogram by $t$ will scale the area by $t$ so $A(t\vec{v}, \vec{w}) = A(\vec{v}, t\vec{w}) = tA(\vec{v}, \vec{w})$.
+
+    For axiom 2, $A(\vec{v}, \vec{w}) = -A(\vec{w}, \vec{v})$ since swapping $\vec{v}$ and $\vec{w}$ switches the orientation.
+
+    For axiom 3, $P(\vec{v} + t\vec{w}, \vec{w})$ and $P(\vec{v}, \vec{w} + t\vec{v})$ are sheared parallelograms, since area is invariant under shearing then $A(\vec{v} + t\vec{w}, \vec{w}) = A(\vec{v}, \vec{w} + t\vec{v}) = A(\vec{v},vec{w})$.
+
+    For axiom 4, since the unit basis vectors all have length $1$, then the area must be $1$, therefore $A((1, 0), (0, 1)) = 1$.
+
+    Therefore $A = \det$.
+\end{proof}
+
+\begin{theorem}
+    The oriented volume of an $n$-parallelotope spanned by $[\vec{v_i}]_{i = 1}^n$ is $\det(\vec{v_i})_{i = 1}^n$.
+\end{theorem}
 
 \end{document}
