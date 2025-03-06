@@ -5,9 +5,10 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{xr}
+\usepackage[hidelinks]{hyperref}
 
 \parindent = 0pt
-\parskip = 0pt
 
 \usepackage{pgfplots}
 \pgfplotsset{compat = 1.18}
@@ -24,33 +25,42 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\cod}{cod}
 \DeclareMathOperator{\lspan}{span}
-\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\nul}{null}
+\DeclareMathOperator{\range}{range}
 
-\numberwithin{equation}{subsection}
+\DeclareMathOperator{\acos}{acos}
+\DeclareMathOperator{\asin}{asin}
+\DeclareMathOperator{\atan}{atan}
+
+\numberwithin{equation}{section}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
-\numberwithin{definition}{subsection}
+\numberwithin{definition}{section}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
-\numberwithin{theorem}{subsection}
+\numberwithin{theorem}{section}
 
 \theoremstyle{definition}
 \newtheorem{lemma}{Lemma}
-\numberwithin{lemma}{subsection}
+\numberwithin{lemma}{section}
+
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}
-\numberwithin{example}{subsection}
+\numberwithin{example}{section}
 
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}
-\numberwithin{exercise}{subsection}
+\numberwithin{exercise}{section}
 
 \theoremstyle{definition}
 \newtheorem{procedure}{Procedure}
-\numberwithin{procedure}{subsection}
+\numberwithin{procedure}{section}
 
 \newenvironment{solution}
     {\begin{proof}[Solution]}
