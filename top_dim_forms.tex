@@ -80,4 +80,43 @@ To integrate an $n$-form we must integrate over a $n$-dimensional subset of $\re
     \]
 \end{theorem}
 
+\begin{exercise}
+    If $\omega = x^2 y dx \wedge dy$ and $c\colon [0, 1] \times [0, 1] \to \real^2$ as $c(s, t) = (s, t)$ is a parameterization of $R$, evaluate $\int_R \omega$.
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        \int_R \omega
+        &= \int_0^1 \int_0^1 \omega_{c(s, t)}\left( \left(\frac{\del c}{\del s}, \frac{\del c}{\del t}\right)(s, t) \right)dtds
+        = \int_0^1 \int_0^1 \omega_{(s, t)}((1, 0), (0, 1))dtds \\
+        &= \int_0^1 \int_0^1 s^2 t \det((1, 0), (0, 1)) dtds
+        = \int_0^1 \int_0^1 s^2 t dtds
+        = \frac{1}{2} \int_0^1 s^2 t^2\Big|_{t = 0}^{t = 1} ds \\
+        &= \frac{1}{2} \int_0^1 s^2 ds
+        = \frac{1}{6} s^3\Big|_{s = 0}^{s = 1}
+        = \frac{1}{6}
+    \end{align*}
+\end{solution}
+
+\begin{exercise}
+    If $\omega = (x^2 + y^2)dx\wedge dy$ and $c\colon [0, 1] \times [0, 2\pi] \to \real^2$ as $c(r, \theta) = (r\cos \theta, r\sin \theta)$ is a parameterization of $R$, evaluate $\int_R \omega$.
+\end{exercise}
+\begin{solution}
+    {\allowdisplaybreaks
+    \begin{align*}
+        \int_R \omega
+        &= \int_0^1 \int_0^{2\pi} \omega_{c(r, \theta)}\left( \frac{\del c}{\del r}, \frac{\del c}{\del \theta} \right)(r, \theta) drd\theta \\
+        &= \int_0^1 \int_0^{2\pi} \omega_{c(r, \theta)}( (\cos\theta, \sin\theta), (-r\sin\theta, r\cos\theta) )drd\theta \\
+        &= \int_0^1 \int_0^{2\pi} r^2\cos^2\theta + r^2\sin^2\theta\begin{vmatrix}
+            \cos \theta & -r\sin\theta \\
+            \sin \theta & r\cos\theta
+        \end{vmatrix}drd\theta \\
+        &= \int_0^1 \int_0^{2\pi} (r^2\cos^2\theta + r^2\sin^2\theta)(r\cos^2\theta + r\sin^2\theta)drd\theta \\
+        &= \int_0^1 \int_0^{2\pi} r^3 drd\theta
+        = 2\pi\int_0^1 r^3 dr
+        = \frac{\pi}{2} r^4\Big|_{r = 0}^{r = 1}
+        = \frac{\pi}{2}
+    \end{align*}
+    }
+\end{solution}
+
 \end{document}
