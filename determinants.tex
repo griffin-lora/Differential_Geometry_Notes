@@ -5,10 +5,17 @@
 \setcounter{section}{4}
 \section{Determinants}
 \subsection{Definition and Basic Properties}
+\begin{definition}[Matrix]
+    An $m$ by $n$ \textit{matrix} over a field $K$ is
+    \[
+        K^{m, n} = \bigtimes_{i = 1}^n K^m
+    \]
+\end{definition}
+
 \begin{definition}[Determinant]
     A \textit{determinant} of \textit{dimension} $n$ for a \textit{basis} $\{ \vec{e_i} \}_{i = 1}^n$ of $\real^n$ is a function
     \[
-        D\colon \bigtimes_{i = 1}^n \real^n \to \real
+        D\colon \real^{n, n} \to \real
     \]
     such that it is
     \begin{enumerate}[label = (\arabic*)]
@@ -52,7 +59,7 @@
     If there exists an $n$-dimensional determinant $D$ with basis $\{ \vec{e_i} \}_{i = 1}^n$, then $D$ is unique up to of dimension and basis.
 \end{lemma}
 
-Therefore we denote the determinant $D$ for the current context as $D = \det$.
+Therefore we denote the determinant $D$ for the current context as $D = \det$. We can also use $\det_\beta$ to specify a basis $\beta$.
 
 \begin{theorem}
     \[

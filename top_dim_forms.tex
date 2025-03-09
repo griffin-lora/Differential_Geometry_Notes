@@ -7,12 +7,77 @@
 \subsection{Definition of Top Dimensional Forms}
 
 \begin{definition}[Differential $n$-Form]
-    $\omega$ is an $n$-form on $\real^n$ is a map that assigns a scalar to each oriented $n$-dimensional parallelepiped in $\real^n$ in a suitable fashion.
+    $\omega$ is an \textit{$n$-form} or \textit{top form} on $\real^n$ iff %$\omega_P \in \mathcal{L}(\real^n, \real)$
+    $\omega_P\colon \real^n \to \real$ such that
+    \[
+        \omega_P(\vec{v_i})_{i = 1}^n = f(P)\det(\vec{v_i})_{i = 1}^n
+    \]
+    where $f\colon \real^n \to \real$ is of smoothness $C^1$.
 \end{definition}
 
-We need to place some requirements on $\omega$ so $\omega_P \in \mathcal{L}(T_P\real^n, \real)$ and
-\[
-    \omega_P(\vec{v_1})
-\]
+Essentially this assigns every $n$-parallelotope in $\real^n$ to a scalar depending smoothly on the given point $P$.
+
+\begin{lemma}[Top Forms are the Exterior Product of Basis Forms] \label{exterior_prod_theorem}
+    $\omega$ is a top form iff
+    \[
+        \omega = f(P) \bigwedge_{i = 1}^n dx_i
+    \]
+    where $f\colon \real^n \to \real$ is of smoothness $C^1$ and $[dx_i]_{i = 1}^n$ are basis $1$-forms for $\real^n$.
+\end{lemma}
+
+Essentially \cref{exterior_prod_theorem} is saying that $\det_\beta = \bigwedge_{i = 1}^n dx_i$ where $\beta$ is the basis that generates $[dx_i]_{i = 1}^n$.
+
+\begin{example}
+    $\omega = xyz^2 dx \wedge dy \wedge dz$ is a $3$-form on $\real^3$. Notice that $\omega_P(\hat{i}, \hat{j}, \hat{k}) = f(P)$.
+\end{example}
+
+\subsection{Integrating Top Dimensional Forms}
+To integrate an $n$-form we must integrate over a $n$-dimensional subset of $\real^n$.
+
+\begin{definition}[$n$-Cell]
+    An \textit{$n$-cell} is a solid, compact, $n$-dimensional, subset of $\real^n$.
+\end{definition}
+
+\begin{definition}[Parameterization of $n$-Cell]
+    $c\colon \bigtimes_{i = 1}^n [a_i, b_i] \to \real^n$ is a \textit{parameterization} of an $n$-cell $R$ iff $c$ is of smoothness $C^1$ and $\range c = R$.
+\end{definition}
+
+\begin{example}
+    $c\colon [0, 1] \times [0, 1] \to \real^2$ by $c(x, y) = (x, y)$ parameterizes the unit square in the obvious way.
+\end{example}
+
+\begin{example}
+    $c\colon [0, 1] \times [0, 2\pi] \to \real^2$ by $c(r, \theta) = (r\cos\theta, r\sin\theta)$ parameterizes the unit disk using polar coordinates.
+\end{example}
+
+\begin{definition}[Integral of Top Form]
+    If $\omega$ is a top form of $\real^n$, then the \textit{integral} of $\omega$ over an $n$-cell $R$ is given by
+    \[
+        \int_R \omega = \lim_{[k_i]_{i = 1}^n \to \infty} \left[ \sum_{j_i = 1}^{k_i} \right]_{i = 1}^n \omega_{P_{[j_i]_{i = 1}^n}}(\vec{v}_{[j_i]_{i = 1}^n})
+    \]
+    % where $[P_i]_{i = 0}^k \in C$ such that $P_0 = A$ and $P_k = B$ and $[\vec{v_i} = \overrightarrow{P_{i - 1}P_i}]_{i = 1}^k$.
+\end{definition}
+
+\begin{definition}[Jacobian]
+    If $f\colon \real^n \to \real^m$, then the \textit{Jacobian} $Jf\colon \real^n \to \real^{m, n}$ is defined by
+    \[
+        Jf = [ D_j f ]_{j = 1}^n = ( D_j f_i )_{i = 1, j = 1}^{m, n}
+    \]
+    where $f = (f_i)_{i = 1}^m$.
+\end{definition}
+
+\begin{theorem}[Fubini's Theorem]
+    If $\omega = f(P)\bigwedge_{i = 1}^n dx_i$ is a top form of $\real^n$ and $c\colon \bigtimes_{i = 1}^n [a_i, b_i] \to \real^n$ is a parameterization of $R$, then
+    \[
+        \int_R \omega = \left[ \int_{a_i}^{b_i} dt_i \right]_{i = 1}^n f(c(t_i)_{i = 1}^n) \det((Jc)(t_i)_{i = 1}^n)
+    \]
+\end{theorem}
+
+\begin{theorem}
+    If $\omega$ is a top form of $\real^n$ and $c\colon \bigtimes_{i = 1}^n [a_i, b_i] \to \real^n$ is a parameterization of $R$, then
+    \[
+        \int_R \omega = \left[ \int_{a_i}^{b_i} dt_i \right]_{i = 1}^n \omega_{c(t_i)_{i = 1}^n}((D_i c)_{i = 1}^n(t_i)_{i = 1}^n)
+    \]
+\end{theorem}
 
 \end{document}
