@@ -69,14 +69,14 @@ To integrate an $n$-form we must integrate over a $n$-dimensional subset of $\re
 \begin{theorem}[Fubini's Theorem]
     If $\omega = f(P)\bigwedge_{i = 1}^n dx_i$ is a top form of $\real^n$ and $c\colon \bigtimes_{i = 1}^n [a_i, b_i] \to \real^n$ is a parameterization of $R$, then
     \[
-        \int_R \omega = \left[ \int_{a_i}^{b_i} dt_i \right]_{i = 1}^n f(c(t_i)_{i = 1}^n) \det((Jc)(t_i)_{i = 1}^n)
+        \int_R \omega = \left[ \int_{a_i}^{b_i} \right]_{i = 1}^n f(c(t_i)_{i = 1}^n) \det((Jc)(t_i)_{i = 1}^n) [dt_i]_{i = 1}^n
     \]
 \end{theorem}
 
 \begin{theorem}
     If $\omega$ is a top form of $\real^n$ and $c\colon \bigtimes_{i = 1}^n [a_i, b_i] \to \real^n$ is a parameterization of $R$, then
     \[
-        \int_R \omega = \left[ \int_{a_i}^{b_i} dt_i \right]_{i = 1}^n \omega_{c(t_i)_{i = 1}^n}((D_i c)_{i = 1}^n(t_i)_{i = 1}^n)
+        \int_R \omega = \left[ \int_{a_i}^{b_i} \right]_{i = 1}^n \omega_{c(t_i)_{i = 1}^n}((D_i c)_{i = 1}^n(t_i)_{i = 1}^n) [dt_i]_{i = 1}^n
     \]
 \end{theorem}
 
@@ -118,5 +118,14 @@ To integrate an $n$-form we must integrate over a $n$-dimensional subset of $\re
     \end{align*}
     }
 \end{solution}
+
+\begin{theorem}[Chain Rule]
+    If $f\colon \real^n \to \real^m$ and $g\colon \real^m \to \real^p$ are $C^1$ smooth then
+    \[
+        J(g \circ f)(P) = \Big((Jg)(f(P)) \Big) \Big( (Jf) (P) \Big)
+    \]
+\end{theorem}
+
+% TODO: Reparameterization
 
 \end{document}
