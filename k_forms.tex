@@ -6,4 +6,22 @@
 \section{Differential k-forms}
 \subsection{Definition of k-forms}
 
+\begin{definition}[Differential $k$-Form]
+    $\alpha$ is a \textit{$k$-form} on $\real^n$ iff $\alpha$ maps every $k$-parallelotope in $\real^n$ to $\real$ such that it is
+    \begin{enumerate}[label = (\arabic*)]
+        \item scales with the same scale of any spanning vectors
+        \[
+            \alpha_P(\ldots, t\vec{v}, \ldots) = t\alpha_P(\ldots, \vec{v}, \ldots)
+        \]
+        \item additive for each spanning vector
+        \[
+            \alpha_P(\ldots, \vec{u} + \vec{v}, \ldots) = \alpha_P(\ldots, \vec{u}, \ldots) + \alpha_P(\ldots, \vec{v}, \ldots)
+        \]
+        \item alternating with respect to swapping any two spanning vectors
+        \[
+            \alpha_P(\ldots, \vec{u}, \ldots, \vec{v}, \ldots) = -\alpha_P(\ldots, \vec{v}, \ldots, \vec{u}, \ldots)
+        \]
+    \end{enumerate}
+\end{definition}
+
 \end{document}

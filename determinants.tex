@@ -19,7 +19,7 @@
     \]
     such that it is
     \begin{enumerate}[label = (\arabic*)]
-        \item invariant under the scaling of any of its column vectors
+        \item invariant (up to said scalar) under the scaling of any of its column vectors
         \[
             D\left(\begin{cases} 
                 t\vec{v_i} & i = j \\
@@ -27,7 +27,7 @@
             \end{cases}
             \right)_{i = 1}^n = tD(\vec{v_i})_{i = 1}^n
         \]
-        \item anticommutative with respect to swapping of column vectors
+        \item alternating with respect to swapping of column vectors
         \[
             D\left(\begin{cases}
                 \vec{v_j} & i = j \\
@@ -61,7 +61,7 @@
 
 Therefore we denote the determinant $D$ for the current context as $D = \det$. We can also use $\det_\beta$ to specify a basis $\beta$.
 
-\begin{theorem}
+\begin{theorem}[Determinant is Additive with Respect to Each Column]
     \[
         \det\left( \begin{cases}
             \vec{u} + \vec{w} & i = j \\
