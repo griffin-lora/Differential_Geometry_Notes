@@ -1,4 +1,5 @@
 \documentclass[notes]{subfiles}
+\externaldocument{determinants}
 
 \begin{document}
 
@@ -24,5 +25,82 @@
         \item $C^1$ smooth with respect to $P$
     \end{enumerate}
 \end{definition}
+
+\begin{exercise} \label{basic_2_form_on_r3}
+    Show that $\alpha$ such that
+    \[
+        \alpha_P(\vec{u}, \vec{v}) = \begin{vmatrix}
+            a_1 & b_1 \\
+            a_2 & b_2
+        \end{vmatrix}
+    \]
+    is a $2$-form on $\real^3$
+\end{exercise}
+\begin{proof}
+    For each of the $k$-form axioms we have
+    \begin{enumerate}[label = (\arabic*)]
+        \item \begin{align*}
+            \alpha_P(t\vec{u}, \vec{v})
+            &= \begin{vmatrix}
+                ta_1 & b_1 \\
+                ta_2 & b_2
+            \end{vmatrix}
+            = ta_1b_2 - tb_1a_2
+            = t\begin{vmatrix}
+                a_1 & b_1 \\
+                a_2 & b_2
+            \end{vmatrix}
+            = \alpha_P(\vec{u}, \vec{v})
+        \end{align*}
+        and wlog for $\alpha_P(\vec{u}, t\vec{v}) = t\alpha_P(\vec{u}, \vec{v})$.
+        \item \begin{align*}
+            \alpha_P(\vec{u} + \vec{v}, \vec{w})
+            &= \begin{vmatrix}
+                a_1 + b_1 & c_1 \\
+                a_2 + b_2 & c_2
+            \end{vmatrix}
+            = c_2a_1 + c_2b_1 - c_1a_2 - c_1b_2 \\
+            &= (a_1c_2 - c_1a_2) + (b_1c_2 - c_1b_2)
+            = \begin{vmatrix}
+                a_1 & c_1 \\
+                a_2 & c_2
+            \end{vmatrix}
+            +
+            \begin{vmatrix}
+                b_1 & c_1 \\
+                b_2 & c_2
+            \end{vmatrix} \\
+            &= \alpha_P(\vec{u}, \vec{w}) + \alpha_P(\vec{v}, \vec{w})
+        \end{align*}
+        and wlog for $\alpha_P(\vec{u}, \vec{v} + \vec{w}) = \alpha_P(\vec{u}, \vec{v}) + \alpha_P(\vec{u}, \vec{w})$
+        \item \begin{align*}
+            \alpha_P(\vec{u}, \vec{v})
+            &= \begin{vmatrix}
+                a_1 & b_1 \\
+                a_2 & b_2
+            \end{vmatrix}
+            = a_1b_2 - b_1a_2
+            = -(b_1a_2 - a_1b_2) \\
+            &= -\begin{vmatrix}
+                b_1 & a_1 \\
+                b_2 & a_2
+            \end{vmatrix}
+            = -\alpha_P(\vec{v}, \vec{u})
+        \end{align*}
+        \item Since $\alpha$ does not vary with choice of $P$, then $\alpha$ is $C^1$ smooth with respect to $P$.
+    \end{enumerate}
+    % \begin{enumerate}[label = (\arabic*)]
+    %     \item Since the determinant scales with respect to the scale of any column vector, then $\alpha$ scales with respect to any of its spanning vectors.
+    %     \item By \cref{det_additive} we know that the determinant is additive with respect to any of its column vectors, therefore $\alpha$ is additive with respect to any of its column vectors.
+    %     \item Since the determinant is alternating with respect to any of its column vectors, then $\alpha$ is alternating with respect to any of its spanning vectors.
+    %     \item Since $\alpha$ does not vary with choice of $P$, then $\alpha$ is $C^1$ smooth with respect to $P$.
+    % \end{enumerate}
+\end{proof}
+
+Notice that axioms $1$ to $3$ are all satisfied by the determinant, therefore if we take the determinant of spanning vectors, as long as axiom $4$ is also satisfied, then we will end up with a $k$-form over $\real^n$.
+
+Also notice that in \cref{basic_2_form_on_r3} $\alpha_P(\vec{u}, \vec{v})$ will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xy$-plane.
+
+
 
 \end{document}
