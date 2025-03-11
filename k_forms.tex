@@ -26,81 +26,75 @@
     \end{enumerate}
 \end{definition}
 
-\begin{exercise} \label{basic_2_form_on_r3}
-    Show that $\alpha$ such that
+\begin{example}
+    Consider the $2$-form $dx \wedge dy$ on $\real^3$ such that
     \[
-        \alpha_P(\vec{u}, \vec{v}) = \begin{vmatrix}
+        (dx \wedge dy)_P(\vec{v}, \vec{w}) =
+        \begin{vmatrix}
             a_1 & b_1 \\
             a_2 & b_2
         \end{vmatrix}
     \]
-    is a $2$-form on $\real^3$
-\end{exercise}
-\begin{proof}
-    For each of the $k$-form axioms we have
-    \begin{enumerate}[label = (\arabic*)]
-        \item \begin{align*}
-            \alpha_P(t\vec{u}, \vec{v})
-            &= \begin{vmatrix}
-                ta_1 & b_1 \\
-                ta_2 & b_2
-            \end{vmatrix}
-            = ta_1b_2 - tb_1a_2
-            = t\begin{vmatrix}
-                a_1 & b_1 \\
-                a_2 & b_2
-            \end{vmatrix}
-            = \alpha_P(\vec{u}, \vec{v})
-        \end{align*}
-        and wlog for $\alpha_P(\vec{u}, t\vec{v}) = t\alpha_P(\vec{u}, \vec{v})$.
-        \item \begin{align*}
-            \alpha_P(\vec{u} + \vec{v}, \vec{w})
-            &= \begin{vmatrix}
-                a_1 + b_1 & c_1 \\
-                a_2 + b_2 & c_2
-            \end{vmatrix}
-            = c_2a_1 + c_2b_1 - c_1a_2 - c_1b_2 \\
-            &= (a_1c_2 - c_1a_2) + (b_1c_2 - c_1b_2)
-            = \begin{vmatrix}
-                a_1 & c_1 \\
-                a_2 & c_2
-            \end{vmatrix}
-            +
-            \begin{vmatrix}
-                b_1 & c_1 \\
-                b_2 & c_2
-            \end{vmatrix} \\
-            &= \alpha_P(\vec{u}, \vec{w}) + \alpha_P(\vec{v}, \vec{w})
-        \end{align*}
-        and wlog for $\alpha_P(\vec{u}, \vec{v} + \vec{w}) = \alpha_P(\vec{u}, \vec{v}) + \alpha_P(\vec{u}, \vec{w})$
-        \item \begin{align*}
-            \alpha_P(\vec{u}, \vec{v})
-            &= \begin{vmatrix}
-                a_1 & b_1 \\
-                a_2 & b_2
-            \end{vmatrix}
-            = a_1b_2 - b_1a_2
-            = -(b_1a_2 - a_1b_2) \\
-            &= -\begin{vmatrix}
-                b_1 & a_1 \\
-                b_2 & a_2
-            \end{vmatrix}
-            = -\alpha_P(\vec{v}, \vec{u})
-        \end{align*}
-        \item Since $\alpha$ does not vary with choice of $P$, then $\alpha$ is $C^1$ smooth with respect to $P$.
-    \end{enumerate}
-    % \begin{enumerate}[label = (\arabic*)]
-    %     \item Since the determinant scales with respect to the scale of any column vector, then $\alpha$ scales with respect to any of its spanning vectors.
-    %     \item By \cref{det_additive} we know that the determinant is additive with respect to any of its column vectors, therefore $\alpha$ is additive with respect to any of its column vectors.
-    %     \item Since the determinant is alternating with respect to any of its column vectors, then $\alpha$ is alternating with respect to any of its spanning vectors.
-    %     \item Since $\alpha$ does not vary with choice of $P$, then $\alpha$ is $C^1$ smooth with respect to $P$.
-    % \end{enumerate}
-\end{proof}
+    By the axioms of a determinant, $dx \wedge dy$ (and all other basis exterior product forms) follow axioms 1--3 of a $k$-form. As long as the function in front of the determinant is smooth with respect to $P$ then we get a $k$-form. In this case it is the constant function so this is a $2$-form.
 
-Notice that axioms $1$ to $3$ are all satisfied by the determinant, therefore if we take the determinant of spanning vectors, as long as axiom $4$ is also satisfied, then we will end up with a $k$-form over $\real^n$.
+    Also notice that $(dx \wedge dy)_P(\vec{u}, \vec{v})$ will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xy$ plane.
 
-Also notice that in \cref{basic_2_form_on_r3} $\alpha_P(\vec{u}, \vec{v})$ will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xy$-plane.
+    Similarly we can define $2$-forms
+    \[
+        (dx \wedge dz)_P(\vec{v}, \vec{w}) =
+        \begin{vmatrix}
+            a_1 & b_1 \\
+            a_3 & b_3
+        \end{vmatrix}
+    \]
+    and
+    \[
+        (dy \wedge dz)_P(\vec{v}, \vec{w}) =
+        \begin{vmatrix}
+            a_2 & b_2 \\
+            a_3 & b_3
+        \end{vmatrix}
+    \]
+    which will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xz$ and $yz$ planes respectively.
+\end{example}
 
+\begin{example}
+    Let $\vec{F}\colon \real^3 \to \real^3$ be a $C^1$ smooth vector field. We can think of $\vec{F}(P)$ as describing the velocity of a fluid at point $P$.
 
+    Now consider a point $P$ and the parallelogram spanned by $\vec{u}$ and $\vec{v}$ at $P$. We can now choose a normal basis $\beta$ isomorphic to $\real^2$ such that $\vec{u} \in \lspan\beta$ and $\vec{v} \in \lspan\beta$. We can now orthonormally extend $\beta$ to a new basis $\beta' = \beta \cup \{ \vec{n} \}$ isomorphic to $\real^3$. We can now define the flux through $P$ as
+    \[
+        (\vec{F}(P)\cdot\vec{n})\det_\beta(\vec{u}, \vec{v})
+    \]
+    Notice that $\vec{F}(P)\cdot\vec{n}$ is the signed magnitude of $\vec{F}(P)$ that does not lie in $\lspan \beta$ the flux through $P$ will scale the area of the parallelogram formed by $\vec{u}$ and $\vec{v}$ by exactly the signed magnitude of $\vec{F}(P)$ orthogonal to the parallelogram. Therefore the flux is equal to the volume of the parallelopiped spanned by $\vec{u}$, $\vec{v}$, and $\vec{F}(P)$ or
+    \[
+        \det(v, w, \vec{F}(P))
+    \]
+    We now associate a flux form to $\vec{F}$ as the $2$-form $\omega$ defined by
+    \begin{align*}
+        \omega_P(\vec{u}, \vec{v})
+        &= \det(\vec{u}, \vec{v}, \vec{F}(P))
+        = \begin{vmatrix}
+            a_1 & b_1 & F_1(P) \\
+            a_2 & b_2 & F_2(P) \\
+            a_3 & b_3 & F_3(P)
+        \end{vmatrix} \\
+        &= F_1(P)\begin{vmatrix}
+            a_2 & b_2 \\
+            a_3 & b_3
+        \end{vmatrix}
+        - F_2(P)\begin{vmatrix}
+            a_1 & b_1 \\
+            a_3 & b_3
+        \end{vmatrix}
+        + F_3(P)\begin{vmatrix}
+            a_1 & b_1 \\
+            a_2 & b_2
+        \end{vmatrix}
+    \end{align*}
+    Therefore we can write $\omega$ as
+    \[
+        \omega = F_1(P)dy\wedge dz - F_2(P)dx\wedge dz + F_3(P)dx \wedge dy
+    \]
+\end{example}
 
 \end{document}
