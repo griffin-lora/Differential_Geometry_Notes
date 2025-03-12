@@ -97,4 +97,60 @@
     \]
 \end{example}
 
+\subsection{Writing k-forms in coordinates}
+\begin{definition}[Multi-Index]
+    A \textit{multi-index} of \textit{length} $k$ \textit{for} $n$ is $I = \{i_j\}_{j = 1}^k$ such that for each $i_j \in \mathbb{Z}$ where $1 \leq i_j \leq n$.
+\end{definition}
+This gives us a way to properly choose a set of indices for a problem. Note that the ``set" we work with here is not a set in the formal definition of the term. Specifically, this set is prescribed a specific order (i.e $\{ 1, 2 \} \neq \{ 2, 1 \}$), and elements do not need to be unique (i.e $\{ 1, 1 \} \neq \{ 1 \}$).
+
+\begin{example}
+    If we have a multi-index $I = \{1, 5, 2\}$ then $\bigwedge_{i \in I} dx_i = dx_1 \wedge dx_5 \wedge dx_2$
+\end{example}
+
+\begin{definition}[Vector for a Multi-Index] \label{multi_index_vector}
+    If $I = \{ i_j \}_{j = 1}^k$ is a multi-index for $n$, $V$ is a vector space over $K$ such that $\dim V = n$, and $\beta = \{ \vec{e_i} \}_{i = 1}^n$ is a basis for $V$, then $\vec{v}_I$ is the \textit{multi-index vector for} $\vec{v} \in V$ \textit{and} $I$ \textit{with respect to} $\beta$ defined by
+    \[
+        \vec{v_I} = \left(\sum_{i = 1}^n c_i\vec{e_i}\right)_I
+        = \sum_{i \in I} c_i\vec{e_i}
+    \]
+\end{definition}
+We can view \cref{multi_index_vector} as projecting a vector $\vec{v}$ to the $k$-dimensional subspace $U = \lspan \{ \vec{e_i} \}_{i \in I}$.
+
+\begin{definition}[$k$-Form for a Multi-Index] \label{multi_index_k_form}
+    If $I = \{ i_j \}_{j = 1}^k$ is a multi-index for $n$, then $dx_I = \bigwedge_{i \in I} dx_i$ is the $k$-form on $\real^n$ \textit{for} $I$ \textit{with respect to} a basis $\beta$ by
+    \[
+        (dx_I)_P(\vec{v_i})_{i = 1}^k
+        = \det({(\vec{v_i})_I})_{i = 1}^k
+    \]
+    By the properties of the determinant and being constant with respect to $P$, it is sensible to call these $k$-forms.
+\end{definition}
+
+Since we can view \cref{multi_index_vector} as projecting to a subspace, \cref{multi_index_k_form} then computes the oriented volume of the projected vectors.
+
+Unless otherwise specified, we will be working in the standard basis for multi indices.
+
+Notice that if there are any repeated indices in $I$ then $dx_I = 0$ by the alternating property. Also if $J$ is a multi-index obtained by swapping two indices from $I$ then $dx_I = -dx_J$ also by the alternating property.
+
+\begin{example}
+    Let $\alpha$ be a $k$-form on $\real^n$ defined by
+    \[
+        \alpha = \sum_{i = 1}^p f_i dx_{I_i}
+    \]
+    for $k$-multi-indices $[I_i]_{i = 1}^p$ and $C^1$ smooth functions $[f_i\colon \real^n \to \real]_{i = 1}^p$.
+\end{example}
+
+Also notice that we can always rewrite a multi-index $I$ to be in increasing order of indices as $J$ which gives us $dx_J = \pm dx_I$.
+
+\begin{definition}[Increasing Multi-Index]
+    A multi-index $I = \{ i_j \}_{j = 1}^k$ is called \textit{increasing} iff $\big<_{j = 1}^k i_j$.
+\end{definition}
+
+\begin{example}
+    $\{ 2, 4, 8 \}$ is increasing but $\{ 2, 1, 3 \}$ and $\{ 2, 2, 2 \}$ are not.
+\end{example}
+
+\begin{lemma}
+    There are ${n \choose k}$ increasing multi-indices of length $k$ for $n$.
+\end{lemma}
+
 \end{document}
