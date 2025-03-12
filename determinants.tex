@@ -13,7 +13,7 @@
 \end{definition}
 
 \begin{definition}[Determinant]
-    A \textit{determinant} of \textit{dimension} $n$ for a \textit{basis} $\{ \vec{e_i} \}_{i = 1}^n$ of $\real^n$ is a function
+    A \textit{determinant} of \textit{dimension} $n$ for a \textit{basis} $\{ \vec{e}_i \}_{i = 1}^n$ of $\real^n$ is a function
     \[
         D\colon \real^{n, n} \to \real
     \]
@@ -22,41 +22,41 @@
         \item invariant (up to said scalar) under the scaling of any of its column vectors
         \[
             D\left(\begin{cases} 
-                t\vec{v_i} & i = j \\
-                \vec{v_i} & \text{otherwise}
+                t\vec{v}_i & i = j \\
+                \vec{v}_i & \text{otherwise}
             \end{cases}
-            \right)_{i = 1}^n = tD(\vec{v_i})_{i = 1}^n
+            \right)_{i = 1}^n = tD(\vec{v}_i)_{i = 1}^n
         \]
         \item alternating with respect to swapping of column vectors
         \[
             D\left(\begin{cases}
-                \vec{v_j} & i = j \\
-                \vec{v_k} & i = k \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v}_j & i = j \\
+                \vec{v}_k & i = k \\
+                \vec{v}_i & \text{otherwise}
             \end{cases}\right)_{i = 1}^n
             =
             -D\left(\begin{cases}
-                \vec{v_k} & i = j \\
-                \vec{v_j} & i = k \\
-                \vec{v_i} & \text{otherwise}
+                \vec{v}_k & i = j \\
+                \vec{v}_j & i = k \\
+                \vec{v}_i & \text{otherwise}
             \end{cases}\right)_{i = 1}^n
         \]
         \item invariant under adding linear combinations of column vectors together
         \[
             D\left(\begin{cases}
-                \vec{v_i} + t\vec{v_j} & i = k \\
-                \vec{v_i} & \text{otherwise}
-            \end{cases}\right)_{i = 1}^n = D(\vec{v_i})_{i = 1}^n
+                \vec{v}_i + t\vec{v}_j & i = k \\
+                \vec{v}_i & \text{otherwise}
+            \end{cases}\right)_{i = 1}^n = D(\vec{v}_i)_{i = 1}^n
         \]
         \item identically one on basis column vectors
         \[
-            D(\vec{e_i})_{i = 1}^n = 1
+            D(\vec{e}_i)_{i = 1}^n = 1
         \]
     \end{enumerate}
 \end{definition}
 
 \begin{lemma}[Determinant is Unique]
-    If there exists an $n$-dimensional determinant $D$ with basis $\{ \vec{e_i} \}_{i = 1}^n$, then $D$ is unique up to of dimension and basis.
+    If there exists an $n$-dimensional determinant $D$ with basis $\{ \vec{e}_i \}_{i = 1}^n$, then $D$ is unique up to of dimension and basis.
 \end{lemma}
 
 Therefore we denote the determinant $D$ for the current context as $D = \det$. We can also use $\det_\beta$ to specify a basis $\beta$.
@@ -65,17 +65,17 @@ Therefore we denote the determinant $D$ for the current context as $D = \det$. W
     \[
         \det\left( \begin{cases}
             \vec{u} + \vec{w} & i = j \\
-            \vec{v_i} & .
+            \vec{v}_i & .
         \end{cases} \right)
         =
         \det\left( \begin{cases}
             \vec{u} & i = j \\
-            \vec{v_i} & .
+            \vec{v}_i & .
         \end{cases} \right)
         +
         \det\left( \begin{cases}
             \vec{w} & i = j \\
-            \vec{v_i} & .
+            \vec{v}_i & .
         \end{cases} \right)
     \]
 \end{theorem}
@@ -117,7 +117,7 @@ If we change the order of $\vec{v}$ and $\vec{w}$ then we get the corresponding 
 \end{proof}
 
 \begin{theorem}
-    The oriented volume of an $n$-parallelotope spanned by $[\vec{v_i}]_{i = 1}^n$ is $\det(\vec{v_i})_{i = 1}^n$.
+    The oriented volume of an $n$-parallelotope spanned by $[\vec{v}_i]_{i = 1}^n$ is $\det(\vec{v}_i)_{i = 1}^n$.
 \end{theorem}
 
 \end{document}

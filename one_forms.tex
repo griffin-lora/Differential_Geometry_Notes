@@ -97,7 +97,7 @@ Now instead of $\omega(\vec{PQ})$ we can write $\omega(\vec{PQ})$ or $\omega_{P}
 
 We want our formal definition of $1$-forms to work well with integration. Notice that if $\omega_p(\vec{v}) = 1$ then the Riemann sum
 \[
-    \sum_{i = 1}^k \omega_P(\vec{v_i}) = k
+    \sum_{i = 1}^k \omega_P(\vec{v}_i) = k
 \]
 diverges as $k \to \infty$, so this is not a valid $1$-form. We must force $\omega_P$ to have some behavior that plays nicely with integration. These conditions are linearity through linear functionals, and smoothness through functions of class $C^1$.
 
@@ -155,14 +155,14 @@ This theorem motivates the following notation
 \]
 
 \begin{definition}[Basis $1$-Forms]
-    If $\beta = \{ \vec{v_i} \}_{i = 1}^n$ is a basis for $\real^n$ then $[dx_i]_{i = 1}^n$ are \textit{basis $1$-forms} for $\beta$ on $\real^n$ iff
+    If $\beta = \{ \vec{v}_i \}_{i = 1}^n$ is a basis for $\real^n$ then $[dx_i]_{i = 1}^n$ are \textit{basis $1$-forms} for $\beta$ on $\real^n$ iff
     \[
-        (dx_i)_P(\vec{v}) = (dx_i)_P\left( \sum_{i = 1}^n c_i\vec{v_i} \right) = c_i
+        (dx_i)_P(\vec{v}) = (dx_i)_P\left( \sum_{i = 1}^n c_i\vec{v}_i \right) = c_i
     \]
 \end{definition}
 
 \begin{theorem}[$1$-Forms are the Sum of Basis $1$-Forms]
-    Given a basis $\beta = \{ \vec{v_i} \}_{i = 1}^n$ for $\real^n$ with basis $1$-forms $[dx_i]_{i = 1}^n$, then $\omega$ is a $1$-form on $S \subseteq \real^n$ iff $\omega$ can be written in the form
+    Given a basis $\beta = \{ \vec{v}_i \}_{i = 1}^n$ for $\real^n$ with basis $1$-forms $[dx_i]_{i = 1}^n$, then $\omega$ is a $1$-form on $S \subseteq \real^n$ iff $\omega$ can be written in the form
     \[
         \omega = \sum_{i = 1}^n f_i(P)dx_i
     \]
@@ -175,7 +175,7 @@ This theorem motivates the following notation
     \]
     Now consider that for all $[\varphi_j]_{j = 1}^m$, $\mathcal{M}(\varphi_j) = (A_i)_{i = 1}^n$ which means that
     \[
-        \varphi_j(\vec{v}) = \varphi_j\left( \sum_{i = 1}^n c_i\vec{v_i} \right) = \sum_{i = 1}^n A_ic_i
+        \varphi_j(\vec{v}) = \varphi_j\left( \sum_{i = 1}^n c_i\vec{v}_i \right) = \sum_{i = 1}^n A_ic_i
     \]
     Notice that
     \begin{align*}

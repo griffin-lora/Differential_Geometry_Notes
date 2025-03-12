@@ -27,14 +27,14 @@ Note that a parameterization induces a specific orientation on a curve. We will 
 \end{definition}
 
 \subsection{Integrating 1-Forms over Curves}
-If we had to construct $P_i$ and $\vec{v_i}$ for $i = 1$ to $k$ for every integration it would be very cumbersome. However, we can take advantage of some properties of parameterization of curves. \\
+If we had to construct $P_i$ and $\vec{v}_i$ for $i = 1$ to $k$ for every integration it would be very cumbersome. However, we can take advantage of some properties of parameterization of curves. \\
 For the following derivation, let $\gamma\colon[a, b] \to \real^n$ be a parameterization. Now we take a partition of $[a, b]$ as $[t_i]_{i = 0}^k$ such that $a = t_0$, $b = t_k$, and $[t_{i - 1} < t_i]_{i = 1}^k$. We can now send this through the map $\gamma$ to get a partition of the curve $C$. Taylor's theorem (the one used for power series) states that for $i = 0$ to $k$ that
 \[
     \gamma(t_i) - \gamma(t_{i - 1}) = \gamma'(t_{i - 1})(t_i - t_{i -1}) + E|t_i - t_{i - 1}|
 \]
-Then by black magic we let $L_i$ be the line segment from $\gamma(t_{i - 1})$ to $\gamma(t_{i - 1}) + \gamma'(t_{i - 1})(t_i - t_{i - 1})$ and this is a good approximation? Therefore we let $P_i = \gamma(t_{i - 1})$ and $\vec{v_i} = \gamma'(t_{i - 1})(t_i - t_{i - 1})$. Now we consider the Riemann sum for some arbitrary $1$-form $\omega$ on $C$ as
+Then by black magic we let $L_i$ be the line segment from $\gamma(t_{i - 1})$ to $\gamma(t_{i - 1}) + \gamma'(t_{i - 1})(t_i - t_{i - 1})$ and this is a good approximation? Therefore we let $P_i = \gamma(t_{i - 1})$ and $\vec{v}_i = \gamma'(t_{i - 1})(t_i - t_{i - 1})$. Now we consider the Riemann sum for some arbitrary $1$-form $\omega$ on $C$ as
 \begin{align*}
-    \sum_{i = 1}^k \omega_{P_i}(\vec{v_i})
+    \sum_{i = 1}^k \omega_{P_i}(\vec{v}_i)
     &= \sum_{i = 1}^k \omega_{\gamma(t_{i - 1})}(\gamma'(t_{i - 1})(t_i - t_{i - 1})) \\
     &= \sum_{i = 1}^k \sum_{j = 1}^n f_j(\gamma(t_{i - 1}))(dx_i)_{\gamma(t_{i - 1})}(\gamma'(t_{i - 1})(t_i - t_{i - 1})) \\
     % what?
@@ -46,7 +46,7 @@ However notice that
 \]
 Therefore
 \[
-    \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v_i}) = \int_a^b \sum_{j = 1}^n f_j(\gamma(t))\gamma'(t)dt = \int_a^b \omega_{\gamma(t)}(\gamma'(t))dt
+    \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v}_i) = \int_a^b \sum_{j = 1}^n f_j(\gamma(t))\gamma'(t)dt = \int_a^b \omega_{\gamma(t)}(\gamma'(t))dt
 \]
 
 Notice that $\gamma(t) = (\cos t, \sin t)$, $t \in [0, \pi]$ and $\phi(t) = (-t, \sqrt{1 - t^2})$, $t \in [-1, 1]$ both paramaterize the upper-half plane cut of the unit circle $C = \{ (x, y) : x^2 + y^2 = 1, y \geq 0 \}$.
@@ -84,9 +84,9 @@ We now need to show that the choice of paramaterization matters only up to orien
 \begin{definition}[Integral of a $1$-Form over a Curve]
     Given a curve $C \in \real^n$ from $A$ to $B$ and a $1$-form $\omega$ defined on $C$ then the \textit{integral} of $\omega$ over $C$ is
     \[
-        \int_C \omega = \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v_i})
+        \int_C \omega = \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v}_i)
     \]
-    where $[P_i]_{i = 0}^k \in C$ such that $P_0 = A$ and $P_k = B$ and $[\vec{v_i} = \overrightarrow{P_{i - 1}P_i}]_{i = 1}^k$.
+    where $[P_i]_{i = 0}^k \in C$ such that $P_0 = A$ and $P_k = B$ and $[\vec{v}_i = \overrightarrow{P_{i - 1}P_i}]_{i = 1}^k$.
 \end{definition}
 
 \begin{theorem}
@@ -96,10 +96,10 @@ We now need to show that the choice of paramaterization matters only up to orien
     \]
 \end{theorem}
 \begin{proof}
-    Consider the partition of $[a, b]$ as $[t_i]_{i = 0}^k$ such that $a = t_0$, $b = t_k$, and $[t_{i - 1} < t_i]_{i = 1}^k$. Now consider the partition it induces on the curve through $\gamma$ so $P_i = \gamma(t_{i - 1})$ and $\vec{v_i} = \gamma(t_i) - \gamma(t_{i - 1})$ for $i = 1$ to $k$. Therefore
+    Consider the partition of $[a, b]$ as $[t_i]_{i = 0}^k$ such that $a = t_0$, $b = t_k$, and $[t_{i - 1} < t_i]_{i = 1}^k$. Now consider the partition it induces on the curve through $\gamma$ so $P_i = \gamma(t_{i - 1})$ and $\vec{v}_i = \gamma(t_i) - \gamma(t_{i - 1})$ for $i = 1$ to $k$. Therefore
     \begin{align*}
         \int_C \omega
-        &= \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v_i})
+        &= \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\vec{v}_i)
         = \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\gamma(t_i) - \gamma(t_{i - 1})) \\
         &= \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\gamma'(t_{i - 1})(t_i - t_{i -1}) + E|t_i - t_{i - 1}|) \quad \text{By Taylor's Theorem} \\
         &= \lim_{k\to\infty} \sum_{i = 1}^k \omega_{P_i}(\gamma'(t_{i - 1})(t_i - t_{i -1})) \quad \text{Since $t_i - t_{i - 1} \to 0$} \\
@@ -130,7 +130,7 @@ We now need to show that the choice of paramaterization matters only up to orien
     \]
 \end{theorem}
 \begin{proof}
-    Let $\gamma = \sum_{i = 1}^n \gamma_i\vec{v_i}$. Then by the chain rule
+    Let $\gamma = \sum_{i = 1}^n \gamma_i\vec{v}_i$. Then by the chain rule
     \[
         \frac{d}{dt} f(\gamma(t)) = \sum_{i = 1}^n \frac{\del f}{\del x_i}(\gamma(t))\gamma'_i(t)
     \]

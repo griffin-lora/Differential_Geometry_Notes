@@ -108,19 +108,19 @@ This gives us a way to properly choose a set of indices for a problem. Note that
 \end{example}
 
 \begin{definition}[Vector for a Multi-Index] \label{multi_index_vector}
-    If $I = \{ i_j \}_{j = 1}^k$ is a multi-index for $n$, $V$ is a vector space over $K$ such that $\dim V = n$, and $\beta = \{ \vec{e_i} \}_{i = 1}^n$ is a basis for $V$, then $\vec{v}_I$ is the \textit{multi-index vector for} $\vec{v} \in V$ \textit{and} $I$ \textit{with respect to} $\beta$ defined by
+    If $I = \{ i_j \}_{j = 1}^k$ is a multi-index for $n$, $V$ is a vector space over $K$ such that $\dim V = n$, and $\beta = \{ \vec{e}_i \}_{i = 1}^n$ is a basis for $V$, then $\vec{v}_I$ is the \textit{multi-index vector for} $\vec{v} \in V$ \textit{and} $I$ \textit{with respect to} $\beta$ defined by
     \[
-        \vec{v_I} = \left(\sum_{i = 1}^n c_i\vec{e_i}\right)_I
-        = \sum_{i \in I} c_i\vec{e_i}
+        \vec{v}_I = \left(\sum_{i = 1}^n c_i\vec{e}_i\right)_I
+        = \sum_{i \in I} c_i\vec{e}_i
     \]
 \end{definition}
-We can view \cref{multi_index_vector} as projecting a vector $\vec{v}$ to the $k$-dimensional subspace $U = \lspan \{ \vec{e_i} \}_{i \in I}$.
+We can view \cref{multi_index_vector} as projecting a vector $\vec{v}$ to the $k$-dimensional subspace $U = \lspan \{ \vec{e}_i \}_{i \in I}$.
 
 \begin{definition}[$k$-Form for a Multi-Index] \label{multi_index_k_form}
     If $I = \{ i_j \}_{j = 1}^k$ is a multi-index for $n$, then $dx_I = \bigwedge_{i \in I} dx_i$ is the $k$-form on $\real^n$ \textit{for} $I$ \textit{with respect to} a basis $\beta$ defined by
     \[
-        (dx_I)_P(\vec{v_i})_{i = 1}^k
-        = \det({(\vec{v_i})_I})_{i = 1}^k
+        (dx_I)_P(\vec{v}_i)_{i = 1}^k
+        = \det({(\vec{v}_i)_I})_{i = 1}^k
     \]
     By the properties of the determinant and being constant with respect to $P$, it is sensible to call these $k$-forms.
 \end{definition}
@@ -150,7 +150,7 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
 \end{example}
 
 \begin{lemma}
-    There are ${n \choose k}$ increasing multi-indices of length $k$ for $n$.
+    There are $\binom{n}{k}$ increasing multi-indices of length $k$ for $n$.
 \end{lemma}
 
 \end{document}
