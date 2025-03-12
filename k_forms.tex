@@ -61,9 +61,9 @@
 \begin{example}
     Let $\vec{F}\colon \real^3 \to \real^3$ be a $C^1$ smooth vector field. We can think of $\vec{F}(P)$ as describing the velocity of a fluid at point $P$.
 
-    Now consider a point $P$ and the parallelogram spanned by $\vec{u}$ and $\vec{v}$ at $P$. We can now choose a normal basis $\beta$ isomorphic to $\real^2$ such that $\vec{u} \in \lspan\beta$ and $\vec{v} \in \lspan\beta$. We can now orthonormally extend $\beta$ to a new basis $\beta' = \beta \cup \{ \vec{n} \}$ isomorphic to $\real^3$. We can now define the flux through $P$ as
+    Now consider a point $P$ and the parallelogram spanned by $\vec{u}$ and $\vec{v}$ at $P$. We can consider a basis of the subspace of the parallelogram as $\beta = \{ \vec{u}, \vec{v} \}$. We can now orthonormally extend $\beta$ to a new basis $\beta' = \beta \cup \{ \vec{n} \}$. We can now define the flux through $P$ as
     \[
-        (\vec{F}(P)\cdot\vec{n})\det_\beta(\vec{u}, \vec{v})
+        (\vec{F}(P)\cdot\vec{n})\det(\vec{u}, \vec{v})
     \]
     Notice that $\vec{F}(P)\cdot\vec{n}$ is the signed magnitude of $\vec{F}(P)$ that does not lie in $\lspan \beta$ the flux through $P$ will scale the area of the parallelogram formed by $\vec{u}$ and $\vec{v}$ by exactly the signed magnitude of $\vec{F}(P)$ orthogonal to the parallelogram. Therefore the flux is equal to the volume of the parallelopiped spanned by $\vec{u}$, $\vec{v}$, and $\vec{F}(P)$ or
     \[

@@ -21,34 +21,17 @@
     \begin{enumerate}[label = (\arabic*)]
         \item invariant (up to said scalar) under the scaling of any of its column vectors
         \[
-            D\left(\begin{cases} 
-                t\vec{v}_i & i = j \\
-                \vec{v}_i & \text{otherwise}
-            \end{cases}
-            \right)_{i = 1}^n = tD(\vec{v}_i)_{i = 1}^n
+            D(\ldots, t\vec{v}, \ldots) = tD(\ldots, \vec{v}, \ldots)
         \]
         \item alternating with respect to swapping of column vectors
         \[
-            D\left(\begin{cases}
-                \vec{v}_j & i = j \\
-                \vec{v}_k & i = k \\
-                \vec{v}_i & \text{otherwise}
-            \end{cases}\right)_{i = 1}^n
-            =
-            -D\left(\begin{cases}
-                \vec{v}_k & i = j \\
-                \vec{v}_j & i = k \\
-                \vec{v}_i & \text{otherwise}
-            \end{cases}\right)_{i = 1}^n
+            D(\ldots, \vec{u}, \ldots, \vec{v}, \ldots) = -D(\ldots, \vec{v}, \ldots, \vec{u}, \ldots)
         \]
         \item invariant under adding linear combinations of column vectors together
         \[
-            D\left(\begin{cases}
-                \vec{v}_i + t\vec{v}_j & i = k \\
-                \vec{v}_i & \text{otherwise}
-            \end{cases}\right)_{i = 1}^n = D(\vec{v}_i)_{i = 1}^n
+            D(\ldots, \vec{u}, \ldots, \vec{v}, \ldots) = D(\ldots, \vec{u} + t\vec{v}, \ldots, \vec{v}, \ldots)
         \]
-        \item identically one on basis column vectors
+        \item identically one on standard basis column vectors
         \[
             D(\vec{e}_i)_{i = 1}^n = 1
         \]
@@ -56,31 +39,18 @@
 \end{definition}
 
 \begin{lemma}[Determinant is Unique]
-    If there exists an $n$-dimensional determinant $D$ with basis $\{ \vec{e}_i \}_{i = 1}^n$, then $D$ is unique up to of dimension and basis.
+    If there exists an $n$-dimensional determinant $D$, then $D$ is unique up to of dimension.
 \end{lemma}
 
-Therefore we denote the determinant $D$ for the current context as $D = \det$. We can also use $\det_\beta$ to specify a basis $\beta$.
+Therefore we denote the determinant $D$ as $D = \det$.
 
-\begin{theorem}[Determinant is Additive with Respect to Each Column] \label{det_additive}
+\begin{theorem}[Determinant is Additive with Respect to Each Column Vector] \label{det_additive}
     \[
-        \det\left( \begin{cases}
-            \vec{u} + \vec{w} & i = j \\
-            \vec{v}_i & .
-        \end{cases} \right)
-        =
-        \det\left( \begin{cases}
-            \vec{u} & i = j \\
-            \vec{v}_i & .
-        \end{cases} \right)
-        +
-        \det\left( \begin{cases}
-            \vec{w} & i = j \\
-            \vec{v}_i & .
-        \end{cases} \right)
+        \det(\ldots, \vec{u} + \vec{v}, \ldots) = \det(\ldots, \vec{u}, \ldots) + \det(\ldots, \vec{v}, \ldots)
     \]
 \end{theorem}
 
-\begin{lemma}
+\begin{lemma}[Determinant is Multiplicative]
     $\det(AB) = \det(A)\det(B)$
 \end{lemma}
 
