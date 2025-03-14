@@ -147,7 +147,11 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
     Consider multi-indices of length $2$ for $4$. Then all of the increasing multi-indices are $(1, 2)$, $(1, 3)$, $(1, 4)$, $(2, 3)$, $(2, 4)$, $(3, 4)$ which totals to $6 = \binom{4}{2}$.
 \end{example}
 
-\begin{lemma}
+\begin{lemma} \label{increasing_characteristic_lemma}
+    If $I$ and $J$ are increasing multi-indices of length $k$ for $n$ such that $\elem I = \elem J$ then $I = J$.
+\end{lemma}
+
+\begin{theorem}
     If $I = \{i_p\}_{p = 1}^k$ and $J = \{j_q\}_{q = 1}^k$ are increasing multi-indices for $n$, then
     \[
         (dx_I)_P(E_{., j})_{j \in J} = \begin{cases}
@@ -156,9 +160,9 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
         \end{cases}
     \]
     where $E$ is the identity matrix for $\real^n$.
-\end{lemma}
+\end{theorem}
 \begin{proof}
-    First, consider the case where $I = J$, then
+    First, consider the case where $I = J$. We want to show that we end up with the identity matrix $E'$ of $\real^k$. Therefore
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         &= (dx_I)_P(E_{., j})_{j \in I}
@@ -183,22 +187,28 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
             0 & .
         \end{cases}\right)_{p = 1, q = 1}^{k, k}
     \]
-    is the identity matrix $E'$ of $\real^k$ so
+    is our desired identity matrix $E'$ of $\real^k$ so
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         &= \det(E')
         = 1
     \end{align*}
-    Now consider the case where $I \neq J$, then
+    Now consider the case where $I \neq J$. We want to show that at least one column vector ends up as zero. Therefore
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         &= \det(E_{i, j})_{i \in I, j \in J}
         = \det(E_{i_p, j_q})_{p = 1, q = 1}^{k, k}
     \end{align*}
-    Notice that there must exist some $q'$ such that $i_{q'} \neq j_{q'}$, so
+    Notice that by \cref{increasing_characteristic_lemma} there must exist some $q'$ such that $j_{q'} \notin I$, so
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         = \det(\ldots, (E_{i_p, j_{q'}})_{p = 1}^k, \ldots)
+    \end{align*}
+    We now want to show that the $(q')$-th column vector is zero. Consider that if there existed $p$ such that $i_p = j_{q'}$ then that would mean $j_{q'} \in I$ but that is a contradiction. Therefore $i_p \neq j_{q'}$ for $p = 1$ to $k$ so $E_{i_p, j_{q'}} = 0$. Therefore we get
+    \begin{align*}
+        (dx_I)_P(E_{., j})_{j \in J}
+        &= \det(\ldots, 0, \ldots)
+        = 0
     \end{align*}
 \end{proof}
 
