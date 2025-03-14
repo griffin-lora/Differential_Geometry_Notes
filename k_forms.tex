@@ -148,7 +148,7 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
 \end{example}
 
 \begin{lemma}
-    If $I$ and $J$ are increasing multi-indices of length $k$ for $n$, then
+    If $I = \{i_p\}_{p = 1}^k$ and $J = \{j_q\}_{q = 1}^k$ are increasing multi-indices for $n$, then
     \[
         (dx_I)_P(E_{., j})_{j \in J} = \begin{cases}
             1 & I = J \\
@@ -163,31 +163,42 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
         (dx_I)_P(E_{., j})_{j \in J}
         &= (dx_I)_P(E_{., j})_{j \in I}
         = \det(E_{i, j})_{i \in I, j \in I}
-        = \det(E_{I_i, I_j})_{i = 1, j = 1}^{k, k} \\
+        = \det(E_{i_p, i_q})_{p = 1, q = 1}^{k, k} \\
         &= \det\left(\begin{cases}
-            1 & I_i = I_j \\
+            1 & i_p = i_q \\
             0 & .
-        \end{cases}\right)_{i = 1, j = 1}^{k, k}
+        \end{cases}\right)_{p = 1, q = 1}^{k, k}
     \end{align*}
-    Notice that if $i, j$ existed such that $I_i = I_j$ and $i \neq j$, then $I$ would not be increasing. Therefore $I_i = I_j$ implies $i = j$ therefore
+    Notice that if $p, q$ existed such that $i_p = i_q$ and $p \neq q$, then $I$ would not have distinct indices so $I$ would not be increasing. Therefore $i_p = i_q$ implies $p = q$ which means
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         &= \det\left(\begin{cases}
-            1 & i = j \\
+            1 & p = q \\
             0 & .
-        \end{cases}\right)_{i = 1, j = 1}^{k, k}
+        \end{cases}\right)_{p = 1, q = 1}^{k, k}
     \end{align*}
     Notice that \[
         \left(\begin{cases}
-            1 & i = j \\
+            1 & p = q \\
             0 & .
-        \end{cases}\right)_{i = 1, j = 1}^{k, k}
+        \end{cases}\right)_{p = 1, q = 1}^{k, k}
     \]
     is the identity matrix $E'$ of $\real^k$ so
     \begin{align*}
         (dx_I)_P(E_{., j})_{j \in J}
         &= \det(E')
         = 1
+    \end{align*}
+    Now consider the case where $I \neq J$, then
+    \begin{align*}
+        (dx_I)_P(E_{., j})_{j \in J}
+        &= \det(E_{i, j})_{i \in I, j \in J}
+        = \det(E_{i_p, j_q})_{p = 1, q = 1}^{k, k}
+    \end{align*}
+    Notice that there must exist some $q'$ such that $i_{q'} \neq j_{q'}$, so
+    \begin{align*}
+        (dx_I)_P(E_{., j})_{j \in J}
+        = \det(\ldots, (E_{i_p, j_{q'}})_{p = 1}^k, \ldots)
     \end{align*}
 \end{proof}
 
