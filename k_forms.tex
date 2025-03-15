@@ -151,7 +151,7 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
     If $I$ and $J$ are increasing multi-indices of length $k$ for $n$ such that $\elem I = \elem J$ then $I = J$.
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem} \label{nonzero_thm}
     If $I = \{i_p\}_{p = 1}^k$ and $J = \{j_q\}_{q = 1}^k$ are increasing multi-indices for $n$, then
     \[
         (dx_I)_P(E_{., j})_{j \in J} = \begin{cases}
@@ -211,5 +211,30 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
         = 0
     \end{align*}
 \end{proof}
+
+\begin{lemma}
+    If $\{I_i\}_{i = 1}^m$ is the set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent.
+\end{lemma}
+\begin{proof}
+    Consider constants $[a_i]_{i = 1}^m$ such that
+    \[
+        \sum_{i = 1}^m a_i dx_{I_i} = 0
+    \]
+    then that means
+    \[
+        \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_P(A) = 0
+    \]
+    Now consider that for $j = 1$ to $m$ that
+    \begin{align*}
+        0
+        &= \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_P(E_{\cdot, p})_{p \in I_j} = \sum_{i = 1}^m a_i(dx_{I_i})_P(E_{\cdot, p})_{p \in I_j}
+        = a_j
+    \end{align*}
+    Therefore $a_j =  0$ so $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent.
+\end{proof}
+
+\begin{theorem}
+    If $\{I_i\}_{i = 1}^m$ is the set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ generates all $k$-forms on $\real^n$.
+\end{theorem}
 
 \end{document}
