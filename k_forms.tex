@@ -12,36 +12,36 @@
     \begin{enumerate}[label = (\arabic*)]
         \item scaling with respect to the scale of any spanning vector
         \[
-            \alpha_P(\ldots, t\vec{v}, \ldots) = t\alpha_P(\ldots, \vec{v}, \ldots)
+            \alpha_p(\ldots, t\vec{v}, \ldots) = t\alpha_p(\ldots, \vec{v}, \ldots)
         \]
         \item additive for each spanning vector
         \[
-            \alpha_P(\ldots, \vec{u} + \vec{v}, \ldots) = \alpha_P(\ldots, \vec{u}, \ldots) + \alpha_P(\ldots, \vec{v}, \ldots)
+            \alpha_p(\ldots, \vec{u} + \vec{v}, \ldots) = \alpha_p(\ldots, \vec{u}, \ldots) + \alpha_p(\ldots, \vec{v}, \ldots)
         \]
         \item alternating with respect to swapping any two spanning vectors
         \[
-            \alpha_P(\ldots, \vec{u}, \ldots, \vec{v}, \ldots) = -\alpha_P(\ldots, \vec{v}, \ldots, \vec{u}, \ldots)
+            \alpha_p(\ldots, \vec{u}, \ldots, \vec{v}, \ldots) = -\alpha_p(\ldots, \vec{v}, \ldots, \vec{u}, \ldots)
         \]
-        \item $C^1$ smooth with respect to $P$
+        \item $C^1$ smooth with respect to $p$
     \end{enumerate}
 \end{definition}
 
 \begin{example}
     Consider the $2$-form $dx \wedge dy$ on $\real^3$ such that
     \[
-        (dx \wedge dy)_P(\vec{v}, \vec{w}) =
+        (dx \wedge dy)_p(\vec{v}, \vec{w}) =
         \begin{vmatrix}
             a_1 & b_1 \\
             a_2 & b_2
         \end{vmatrix}
     \]
-    By the axioms of a determinant, $dx \wedge dy$ (and all other basis exterior product forms) follow axioms 1--3 of a $k$-form. As long as the function in front of the determinant is smooth with respect to $P$ then we get a $k$-form. In this case it is the constant function so this is a $2$-form.
+    By the axioms of a determinant, $dx \wedge dy$ (and all other basis exterior product forms) follow axioms 1--3 of a $k$-form. As long as the function in front of the determinant is smooth with respect to $p$ then we get a $k$-form. In this case it is the constant function so this is a $2$-form.
 
-    Also notice that $(dx \wedge dy)_P(\vec{u}, \vec{v})$ will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xy$ plane.
+    Also notice that $(dx \wedge dy)_p(\vec{u}, \vec{v})$ will give us the oriented area of the parallelogram spanned by $\vec{u}$ and $\vec{v}$ when projected down to the $xy$ plane.
 
     Similarly we can define $2$-forms
     \[
-        (dx \wedge dz)_P(\vec{v}, \vec{w}) =
+        (dx \wedge dz)_p(\vec{v}, \vec{w}) =
         \begin{vmatrix}
             a_1 & b_1 \\
             a_3 & b_3
@@ -49,7 +49,7 @@
     \]
     and
     \[
-        (dy \wedge dz)_P(\vec{v}, \vec{w}) =
+        (dy \wedge dz)_p(\vec{v}, \vec{w}) =
         \begin{vmatrix}
             a_2 & b_2 \\
             a_3 & b_3
@@ -59,41 +59,41 @@
 \end{example}
 
 \begin{example}
-    Let $\vec{F}\colon \real^3 \to \real^3$ be a $C^1$ smooth vector field. We can think of $\vec{F}(P)$ as describing the velocity of a fluid at point $P$.
+    Let $\vec{F}\colon \real^3 \to \real^3$ be a $C^1$ smooth vector field. We can think of $\vec{F}(p)$ as describing the velocity of a fluid at point $p$.
 
-    Now consider a point $P$ and the parallelogram spanned by $\vec{u}$ and $\vec{v}$ at $P$. We can consider a basis of parallelogram subspace $U$ as $\beta = \{ \vec{u}, \vec{v} \}$. We can now orthonormally extend $\beta$ to a new basis $\beta' = \beta \cup \{ \vec{n} \}$. We can now define the flux through $P$ as
+    Now consider a point $p$ and the parallelogram spanned by $\vec{u}$ and $\vec{v}$ at $p$. We can consider a basis of parallelogram subspace $U$ as $\beta = \{ \vec{u}, \vec{v} \}$. We can now orthonormally extend $\beta$ to a new basis $\beta' = \beta \cup \{ \vec{n} \}$. We can now define the flux through $p$ as
     \[
-        (\vec{F}(P)\cdot\vec{n})\det(\vec{u}|_U, \vec{v}|_U)
+        (\vec{F}(p)\cdot\vec{n})\det(\vec{u}|_U, \vec{v}|_U)
     \]
-    Notice that $\vec{F}(P)\cdot\vec{n}$ is the signed magnitude of $\vec{F}(P)$ that does not lie in $\lspan \beta$ the flux through $P$ will scale the area of the parallelogram formed by $\vec{u}$ and $\vec{v}$ by exactly the signed magnitude of $\vec{F}(P)$ orthogonal to the parallelogram. Therefore the flux is equal to the volume of the parallelopiped spanned by $\vec{u}$, $\vec{v}$, and $\vec{F}(P)$ or
+    Notice that $\vec{F}(p)\cdot\vec{n}$ is the signed magnitude of $\vec{F}(p)$ that does not lie in $\lspan \beta$ the flux through $p$ will scale the area of the parallelogram formed by $\vec{u}$ and $\vec{v}$ by exactly the signed magnitude of $\vec{F}(p)$ orthogonal to the parallelogram. Therefore the flux is equal to the volume of the parallelopiped spanned by $\vec{u}$, $\vec{v}$, and $\vec{F}(p)$ or
     \[
-        \det(v, w, \vec{F}(P))
+        \det(v, w, \vec{F}(p))
     \]
     We now associate a flux form to $\vec{F}$ as the $2$-form $\omega$ defined by
     \begin{align*}
-        \omega_P(\vec{u}, \vec{v})
-        &= \det(\vec{u}, \vec{v}, \vec{F}(P))
+        \omega_p(\vec{u}, \vec{v})
+        &= \det(\vec{u}, \vec{v}, \vec{F}(p))
         = \begin{vmatrix}
-            a_1 & b_1 & F_1(P) \\
-            a_2 & b_2 & F_2(P) \\
-            a_3 & b_3 & F_3(P)
+            a_1 & b_1 & F_1(p) \\
+            a_2 & b_2 & F_2(p) \\
+            a_3 & b_3 & F_3(p)
         \end{vmatrix} \\
-        &= F_1(P)\begin{vmatrix}
+        &= F_1(p)\begin{vmatrix}
             a_2 & b_2 \\
             a_3 & b_3
         \end{vmatrix}
-        - F_2(P)\begin{vmatrix}
+        - F_2(p)\begin{vmatrix}
             a_1 & b_1 \\
             a_3 & b_3
         \end{vmatrix}
-        + F_3(P)\begin{vmatrix}
+        + F_3(p)\begin{vmatrix}
             a_1 & b_1 \\
             a_2 & b_2
         \end{vmatrix}
     \end{align*}
     Therefore we can write $\omega$ as
     \[
-        \omega = F_1(P)dy\wedge dz - F_2(P)dx\wedge dz + F_3(P)dx \wedge dy
+        \omega = F_1(p)dy\wedge dz - F_2(p)dx\wedge dz + F_3(p)dx \wedge dy
     \]
 \end{example}
 
@@ -110,10 +110,10 @@ This gives us a way to properly choose a set of indices for a problem. Note that
 \begin{definition}[$k$-Form for a Multi-Index] \label{multi_index_k_form}
     If $I$ is a multi-index of length $k$ for $n$, then $dx_I = \bigwedge_{i \in I} dx_i$ is the \textit{multi-indexed $k$-form} on $\real^n$ \textit{for} $I$ defined by
     \[
-        (dx_I)_P(A)
+        (dx_I)_p(A)
         = \det(A_{i, j})_{i \in I, j = 1}^{\emptyset, k}
     \]
-    By the properties of the determinant and being constant with respect to $P$, it is sensible to call these $k$-forms.
+    By the properties of the determinant and being constant with respect to $p$, it is sensible to call these $k$-forms.
 \end{definition}
 
 We can view \cref{multi_index_k_form} as taking $k$ vectors and projecting them down to a subspace and then computing the volume of these projected vectors.
@@ -123,9 +123,9 @@ Notice that if there are any repeated indices in $I$ then $dx_I = 0$ by the alte
 \begin{example}
     Let $\alpha$ be a $k$-form on $\real^n$ defined by
     \[
-        \alpha = \sum_{i = 1}^m f_i(P) dx_{I_i}
+        \alpha = \sum_{i = 1}^m f_i(p) dx_{I_i}
     \]
-    for multi-indices $[I_i]_{i = 1}^m$ each of length $k$ and $C^1$ smooth functions $[f_i\colon \real^n \to \real]_{i = 1}^m$. We inherit axioms 1--3 from $dx_{I_i}$ and we are smooth with respect to $P$ so this is a $k$-form.
+    for multi-indices $[I_i]_{i = 1}^m$ each of length $k$ and $C^1$ smooth functions $[f_i\colon \real^n \to \real]_{i = 1}^m$. We inherit axioms 1--3 from $dx_{I_i}$ and we are smooth with respect to $p$ so this is a $k$-form.
 \end{example}
 
 Also notice that we can always rewrite a multi-index $I$ to be in increasing order of indices as $J$ which gives us $dx_J = \pm dx_I$.
@@ -154,7 +154,7 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
 \begin{theorem} \label{nonzero_thm}
     If $I = \{i_p\}_{p = 1}^k$ and $J = \{j_q\}_{q = 1}^k$ are increasing multi-indices for $n$, then
     \[
-        (dx_I)_P(E_{., j})_{j \in J} = \begin{cases}
+        (dx_I)_p(E_{., j})_{j \in J} = \begin{cases}
             1 & I = J \\
             0 & I \neq J
         \end{cases}
@@ -164,77 +164,93 @@ Also notice that we can always rewrite a multi-index $I$ to be in increasing ord
 \begin{proof}
     First, consider the case where $I = J$. We want to show that we end up with the identity matrix $E'$ of $\real^k$. Therefore
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
-        &= (dx_I)_P(E_{., j})_{j \in I}
+        (dx_I)_p(E_{., j})_{j \in J}
+        &= (dx_I)_p(E_{., j})_{j \in I}
         = \det(E_{i, j})_{i \in I, j \in I}
-        = \det(E_{i_p, i_q})_{p = 1, q = 1}^{k, k} \\
+        = \det(E_{i_s, i_t})_{s = 1, t = 1}^{k, k} \\
         &= \det\left(\begin{cases}
-            1 & i_p = i_q \\
+            1 & i_s = i_t \\
             0 & .
-        \end{cases}\right)_{p = 1, q = 1}^{k, k}
+        \end{cases}\right)_{s = 1, t = 1}^{k, k}
     \end{align*}
-    Notice that if $p, q$ existed such that $i_p = i_q$ and $p \neq q$, then $I$ would not have distinct indices so $I$ would not be increasing. Therefore $i_p = i_q$ implies $p = q$ which means
+    Notice that if $s, t$ existed such that $i_s = i_t$ and $s \neq t$, then $I$ would not have distinct indices so $I$ would not be increasing. Therefore $i_s = i_t$ implies $s = t$ which means
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
+        (dx_I)_p(E_{., j})_{j \in J}
         &= \det\left(\begin{cases}
-            1 & p = q \\
+            1 & s = t \\
             0 & .
-        \end{cases}\right)_{p = 1, q = 1}^{k, k}
+        \end{cases}\right)_{s = 1, t = 1}^{k, k}
     \end{align*}
     Notice that \[
         \left(\begin{cases}
-            1 & p = q \\
+            1 & s = t \\
             0 & .
-        \end{cases}\right)_{p = 1, q = 1}^{k, k}
+        \end{cases}\right)_{s = 1, t = 1}^{k, k}
     \]
     is our desired identity matrix $E'$ of $\real^k$ so
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
+        (dx_I)_p(E_{., j})_{j \in J}
         &= \det(E')
         = 1
     \end{align*}
     Now consider the case where $I \neq J$. We want to show that at least one column vector ends up as zero. Therefore
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
+        (dx_I)_p(E_{., j})_{j \in J}
         &= \det(E_{i, j})_{i \in I, j \in J}
-        = \det(E_{i_p, j_q})_{p = 1, q = 1}^{k, k}
+        = \det(E_{i_s, j_t})_{s = 1, t = 1}^{k, k}
     \end{align*}
-    Notice that by \cref{increasing_characteristic_lemma} there must exist some $q'$ such that $j_{q'} \notin I$, so
+    Notice that by \cref{increasing_characteristic_lemma} there must exist some $t'$ such that $j_{t'} \notin I$, so
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
-        = \det(\ldots, (E_{i_p, j_{q'}})_{p = 1}^k, \ldots)
+        (dx_I)_p(E_{., j})_{j \in J}
+        = \det(\ldots, (E_{i_s, j_{t'}})_{s = 1}^k, \ldots)
     \end{align*}
-    We now want to show that the $(q')$-th column vector is zero. Consider that if there existed $p$ such that $i_p = j_{q'}$ then that would mean $j_{q'} \in I$ but that is a contradiction. Therefore $i_p \neq j_{q'}$ for $p = 1$ to $k$ so $E_{i_p, j_{q'}} = 0$. Therefore we get
+    We now want to show that the $(t')$-th column vector is zero. Consider that if there existed $s$ such that $i_s = j_{t'}$ then that would mean $j_{t'} \in I$ but that is a contradiction. Therefore $i_s \neq j_{t'}$ for $s = 1$ to $k$ so $E_{i_s, j_{t'}} = 0$. Therefore we get
     \begin{align*}
-        (dx_I)_P(E_{., j})_{j \in J}
+        (dx_I)_p(E_{., j})_{j \in J}
         &= \det(\ldots, 0, \ldots)
         = 0
     \end{align*}
 \end{proof}
 
 \begin{lemma}
-    If $\{I_i\}_{i = 1}^m$ is the set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent.
+    If $\{I_i\}_{i = 1}^m$ is the ordered set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent at every point.
 \end{lemma}
 \begin{proof}
-    Consider constants $[a_i]_{i = 1}^m$ such that
+    We want to use \cref{nonzero_thm} to cancel out the right terms and leave us with just the coefficients.
+
+    Then for any $p$, consider constants $[a_i]_{i = 1}^m$ such that
     \[
-        \sum_{i = 1}^m a_i dx_{I_i} = 0
+        \sum_{i = 1}^m a_i (dx_{I_i})_p = 0
     \]
     then that means
     \[
-        \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_P(A) = 0
+        \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_p(A) = 0
     \]
     Now consider that for $j = 1$ to $m$ that
     \begin{align*}
         0
-        &= \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_P(E_{\cdot, p})_{p \in I_j} = \sum_{i = 1}^m a_i(dx_{I_i})_P(E_{\cdot, p})_{p \in I_j}
+        &= \left(\sum_{i = 1}^m a_i dx_{I_i}\right)_p(E_{\cdot, p})_{p \in I_j} = \sum_{i = 1}^m a_i(dx_{I_i})_p(E_{\cdot, p})_{p \in I_j}
         = a_j
     \end{align*}
-    Therefore $a_j =  0$ so $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent.
+    Therefore $a_j = 0$ so $\{dx_{I_i}\}_{i = 1}^m$ is linearly independent.
 \end{proof}
 
 \begin{theorem}
-    If $\{I_i\}_{i = 1}^m$ is the set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ generates all $k$-forms on $\real^n$.
+    If $\{I_i\}_{i = 1}^m$ is the ordered set of all increasing multi-indices of length $k$ for $n$, then $\{dx_{I_i}\}_{i = 1}^m$ generates all $k$-forms on $\real^n$ at every point.
 \end{theorem}
+% \begin{proof}
+%     We want to fix the values of our coefficients at multi-indexed identity matrices.
+
+%     Then for any $k$-form $\omega$ at any point $p$, consider constants $[a_i]_{i = 1}^m$ such that
+%     \[
+%         a_i = \omega_p(E_{., j})_{j \in I_i}
+%     \]
+%     where $E$ is the identity matrix of $\real^n$. Now consider
+%     \begin{align*}
+%         \sum_{i = 1}^m a_i (dx_{I_i})_p
+%     \end{align*}
+% \end{proof}
+
+Therefore we have shown that $\{dx_{I_i}\}_{i = 1}^m$ is a basis for $k$-forms on $\real^n$ at every point.
 
 \end{document}
